@@ -1,0 +1,39 @@
+@import 'compass/reset'; 
+@import "compass/css3";         
+@import "theme-mixin";                     
+         
+$dark-gray : #23252b;                                    
+$med-gray : #3d414b;                          
+$light-gray : #d7d7d7;                    
+$white : #ffffff;                   
+$near-white: #fcfcfc;                   
+$near-black: #0f0f0f;         
+$wmax : 100vmax;         
+$divider-color: #7b7e84;       
+$accent-color-trans : rgba(174,0,0,0.86); //#920000;  
+
+$max-width: 320px;
+  
+body {
+	font-size: 62.5%; 
+	font-family: 'Open Sans', 'sans-serif';
+	font-weight: 400;
+	color: $near-black;
+	&.gold { background-image: url(../img/goldbg3.png); }
+	&.silver { background-image: url(../img/silver_bg.png); }
+	background-repeat: repeat-y; 
+	max-width: 320px;
+	text-shadow: 0px 0px 1px rgba(0,0,0,0.1);
+	&.light-pink { @include theme(rgb(249,60,162)); }
+	&.pink { @include theme(rgb(227,4,109)); }
+	&.red { @include theme(rgb(179,0,0)); }
+		//$dark-accent2 : #a20000;
+	&.orange { @include theme(rgb(233,54,0)); }
+	&.green { @include theme(rgb(33,145,54)); }
+	&.teal { @include theme(rgb(3,139,169)); }
+	&.blue { @include theme(rgb(4,45,212)); } 
+	&.indigo { @include theme(rgb(38,4,212)); }
+	&.purple { @include theme(rgb(82,4,212)); }
+	&.fuschia { @include theme(rgb(152,0,179)); }
+}
+

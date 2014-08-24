@@ -1,0 +1,176 @@
+/*
+ * Swiper 2.6.1
+ * Mobile touch slider and framework with hardware accelerated transitions
+ *
+ * http://www.idangero.us/sliders/swiper/
+ *
+ * Copyright 2010-2014, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under GPL & MIT
+ *
+ * Released on: May 6, 2014
+*/
+.swiper-container {
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
+    /* Fix of Webkit flickering */
+    z-index:1;
+}
+.swiper-wrapper {
+    position:relative;
+    width:100%;
+    -webkit-transition-property:-webkit-transform, left, top;
+    -webkit-transition-duration:0s;
+    -webkit-transform:translate3d(0px,0,0);
+    -webkit-transition-timing-function:ease;
+    
+    -moz-transition-property:-moz-transform, left, top;
+    -moz-transition-duration:0s;
+    -moz-transform:translate3d(0px,0,0);
+    -moz-transition-timing-function:ease;
+    
+    -o-transition-property:-o-transform, left, top;
+    -o-transition-duration:0s;
+    -o-transform:translate3d(0px,0,0);
+    -o-transition-timing-function:ease;
+    -o-transform:translate(0px,0px);
+    
+    -ms-transition-property:-ms-transform, left, top;
+    -ms-transition-duration:0s;
+    -ms-transform:translate3d(0px,0,0);
+    -ms-transition-timing-function:ease;
+    
+    transition-property:transform, left, top;
+    transition-duration:0s;
+    transform:translate3d(0px,0,0);
+    transition-timing-function:ease;
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    -ms-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.swiper-slide { 
+    float: left;
+    cursor: -webkit-grabbing;
+}
+
+#place-picker .swiper-slide h1 {
+    width: 85%;
+    float: right;
+}
+
+#place-picker .swiper-slide h1.right {
+    float: left;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+    -ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+    -ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+    /* Specify Swiper's Size: */
+
+    width:102px;
+    display: inline-block;
+    height: 90px;
+}
+#region-picker.swiper-container, #level_picker.swiper-container {
+
+    width:200px;
+    display: inline-block;
+    height: 125px;
+    vertical-align: middle;
+}
+
+#region-picker.swiper-slide {
+    /* Specify Slides's Size: */
+    
+    /*width: 100%;
+    height: 100%;*/
+    width:200px;
+    display: inline-block;
+    height: 125px;
+}
+
+#level_picker.swiper-container{
+    width: 76%;
+    height: 20px;
+}
+
+#level_picker .swiper-slide{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+}
+
+
+#color-picker.swiper-container {
+    height: 135px;
+}
+
+#color-picker .swiper-wrapper { width: 200px; }
+
+#color-picker .swiper-slide {
+    height: 45px;
+    width: 80%;
+}
+
+#color-picker .swiper-slide-visible { opacity: 1; }
+
+#color-picker .swiper-slide-active div {
+    outline: 3px white solid;
+    -webkit-box-shadow: 0 0 17px 4px rgb(73,73,73);
+    z-index: 5;    
+}
+
+#photo_viewer.swiper-container,#marks_viewer.swiper-container { width: 100%; height: 75px;}
+#photo_viewer .swiper-slide, #marks_viewer .swiper-slide { height: 67px; }
+#photo_viewer .swiper-slide-visible, #marks_viewer .swiper-slide-visible {opacity: 1; }
+
+.swiper-slide-visible {
+    /* Specific visible slide styling: */   
+    opacity: 0.52;
+
+}
+.swiper-slide-active {
+    opacity:1;
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+    /* Stylize pagination button: */    
+
+}
+.swiper-active-switch {
+    /* Specific active button style: */ 
+    
+}
+.swiper-visible-switch {
+    /* Specific visible button style: */    
+    
+}
