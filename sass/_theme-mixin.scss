@@ -379,7 +379,7 @@
 			}
 		}
 
-		span.italic { font-family: 'asapitalic'; font-size: 16px; }
+		span.italic { font-family: 'Asap'; font-size: 16px; font-style: 'italic'; }
 
 		h3 { font-size: 18px; }
 		section {
@@ -456,7 +456,7 @@
 		#region-picker, #level_picker { height: 22px; width: 232px; }
 	}
 	#feis_form { 
-		.settings { display: none !important; }
+		.settings { display: none !important; } 
 	}
 
 	input[role="button"] {
@@ -470,15 +470,17 @@
 		-webkit-appearance: none;
 		cursor: pointer;
 		@include border-radius(6px, 6px);
-		background-image: -webkit-linear-gradient(bottom, rgba(197,197,197,.43), rgba(255,255,255,.25) 50%, rgba(197,197,197,.43));
+		@include background-image(linear-gradient(to top, rgba(197,197,197,.43), rgba(255,255,255,.25) 50%, rgba(197,197,197,.43)));
+		/*background-image: -webkit-linear-gradient(bottom, rgba(197,197,197,.43), rgba(255,255,255,.25) 50%, rgba(197,197,197,.43));
 		background-image: -moz-linear-gradient(bottom, rgba(197,197,197,.43), rgba(255,255,255,.25) 50%, rgba(197,197,197,.43));
 		background-image: -o-linear-gradient(bottom, rgba(197,197,197,.43), rgba(255,255,255,.25) 50%, rgba(197,197,197,.43));
 		background-image: linear-gradient(to top, rgba(197,197,197,.43), rgba(255,255,255,.25) 50%, rgba(197,197,197,.43));
-		
+		*/
 		&.dark {
 			background-color: $accent-color;
 			color: $near-white;
-			background-image: -webkit-linear-gradient(bottom, $dark-accent, $accent-color 50%, $dark-accent);
+			//background-image: -webkit-linear-gradient(bottom, $dark-accent, $accent-color 50%, $dark-accent);
+			@include background-image(linear-gradient(bottom, $dark-accent, $accent-color 50%, $dark-accent));
 		}
 		&.light {
 			background-color: #efefef;
@@ -488,7 +490,7 @@
 		&.apply { width: 100%; margin: 0 auto; display: block; }
 
 		&.cancel {float: right;}
-		&:hover {background-color: #ffffff;}
+		&:hover {/*background-color: #ffffff;*/}
 	}
 
 	/*header#feises_header {
@@ -540,7 +542,7 @@
 			vertical-align: center;
 			display: inline-block;
 			font-weight: 400;
-			font-size: 16px;
+			font-size: 16px; 
 			line-height: 21px;
 			//color: $white;
 			padding: 0 16px;
@@ -596,8 +598,8 @@
 			.region {
 				margin-top: 5px;
 				font-family: 'Asap';
-				font-style: 'italic';
-				font-weight: 400;
+				font-style: italic;
+				font-weight: 400; 
 				font-size: 1.4em;
 				img,svg {width: 12px; height: 14px; margin-right: 6px;}
 			}
@@ -622,7 +624,7 @@
 			}
 			h4 {
 				font-size: 1.4em;
-				margin-bottom: 6px;
+				margin-bottom: 6px; 
 			}
 			//.accent_numbers { font-size: 1.7em; }
 			.edit { font-size: 1.4em; cursor: pointer; }
@@ -632,19 +634,21 @@
 
 	#profile {
 		width: 294px;
-		height: auto;
+		height: auto; 
 		header {
 			color: $near-white;
 			display: block;
 			line-height: 20px;
-			img#user_photo {
+			#user_photo {
 				width: 72px;
 				height: 72px;
 				margin: 0 12px 0 0;
-				border-radius: 36px;
+				overflow: hidden;
+				@include border-radius(36px,36px);
 				border: 3px $near-white solid;
 				vertical-align: middle;
 			}
+			img {height: 100%; width: 100%; }
 			#details { vertical-align: middle; }
 		}
 		> section {

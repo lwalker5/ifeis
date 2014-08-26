@@ -144,6 +144,8 @@ sizes, pagination, etc.
 #color-picker .swiper-slide-active div {
     outline: 3px white solid;
     -webkit-box-shadow: 0 0 17px 4px rgb(73,73,73);
+    -moz-box-shadow: 0 0 17px 4px rgb(73,73,73);
+    box-shadow: 0 0 17px 4px rgb(73,73,73);
     z-index: 5;    
 }
 
