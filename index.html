@@ -13,7 +13,6 @@
     <!--<meta name="apple-mobile-web-app-status-bar-style" content="default" />-->
     <link rel="stylesheet" href="css/idangerous.swiper.css">
 	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="fonts/stylesheet.css">
 	<link href='http://fonts.googleapis.com/css?family=Asap:400,700,400italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps:700' rel='stylesheet' type='text/css'>
@@ -30,7 +29,6 @@
 		<ul>
 			<li>
 				<a href="#/my_feises">
-					<!--<img class="svg" src="img/my_feises_icon.svg"/>-->
 					<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 60 60" xml:space="preserve" enable-background="new 0 0 60 60">
   						<path d="M14.542 1.983c10.248 0 20.496 0 30.744 0 0 0.625 0 1.248 0 1.872 4.28 0 8.557 0 12.835 0 0 0.713 0 1.425 0 2.14 -1.619 8.434-2.545 15.532-7.754 20.051 -3.28 2.846-7.898 3.546-11.766 5.881 -2.278 1.378-3.41 3.986-6.147 4.546 0.123 6.025-1.142 13.438 4.276 14.17 -4.1 0.625-9.356 0.09-13.902 0.269 5.359-0.792 4.266-8.032 4.277-14.17 -1.846-1.452-4.03-2.565-5.346-4.546C9.66 28.965 2.655 20.642 1.708 6.261c0-0.803 0-1.604 0-2.406 4.196-0.172 9.082 0.346 12.834-0.268C14.542 3.053 14.542 2.518 14.542 1.983zM18.284 26.848c-2.184-5.569-4.13-11.376-3.742-19.518 -2.942 0-5.883 0-8.823 0C6.498 17.246 10.214 24.225 18.284 26.848zM41.542 26.848c8.051-2.644 11.642-9.749 12.565-19.518 -2.939 0-5.881 0-8.822 0C45.557 15.355 43.663 21.212 41.542 26.848z"/>
  						 <rect x="16.854" y="52" width="25" height="7"/>
@@ -68,12 +66,7 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/libs/handlebars-v1.3.0.js"></script>
-	<!--<script src="js/feis.js"></script>
-	<script src="js/feislist.js"></script>
-	<script src="js/menu.js"></script>-->
 	<script src="js/idangerous.swiper.js"></script>
-	<!--<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>-->	
 	<script id="feis_page_temp" type="text/x-handlebars-template">
 		<header id="feises_header" class="main-nav_header">
 				<a href="{{href prev_feis_id}}" class="left_arrow">
@@ -433,7 +426,9 @@
 	<script id="user_template" type="text/x-handlebars-template">
 		<section id="profile" class="floating">
 			<header>
-				<img id="user_photo" class="inline-block" src="img/profile_photo.png"/>
+				<div id="user_photo" class="inline-block">
+					<img src="img/profile_photo.png"/>
+				</div>
 				<section id="details" class="inline-block">
 					<h1>{{name}}</h1>
 					<h3>{{level}} {{feisAge this}}</h4>
@@ -472,8 +467,6 @@
 					<li><span class="accent_numbers stats">5</span>Top fives</li>
 					<li><span class="accent_numbers stats">{{placements}}</span>Placements</li>
 				</ul>
-				<!--<div class="more_stats"><span class="accent_numbers">5</span>Top fives</div>
-				<div class="more_stats"><span class="accent_numbers">15</span>Placements</div>-->
 			</section>
 			<section class="profile_section" id="goals">
 				<h2><!--<img src="img/gold_star.png"/>-->Goals</h2>
@@ -496,7 +489,6 @@
 	</script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js" type="text/javascript"></script>
   	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js" type="text/javascript"></script>
-  	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js" type="text/javascript"></script>-->
   	<script src="js/views/feisview.js"></script>
 
 

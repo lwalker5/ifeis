@@ -20,8 +20,9 @@ Handlebars.registerHelper('NoHyphen', function(object) {
 Handlebars.registerHelper('feisAge', function(object) {
 	var today = new Date(); //Today's date
 
-	var dateFormat = object.birthday.replace('-',',');
-	var birthday = new Date(dateFormat); //Dancer birthday
+	//var dateFormat = object.birthday.replace(/-/g,',');
+	var dateArray = object.birthday.split('-')
+	var birthday = new Date(dateArray[0],dateArray[1]-1,dateArray[2]); //Dancer birthday
 
 	var birthYear = birthday.getFullYear();
 	var feis_age = 'U18';
@@ -252,7 +253,7 @@ FeisPageView = Backbone.View.extend({
 			watchActiveIndex: true
 		});
 	},
-	oK: function() {
+	oK: function(event) {
 		event.preventDefault();
 		var formData = {};
 		var prev_place = this.model.toJSON().place;
@@ -478,8 +479,8 @@ FormView = Backbone.View.extend({
 		if (this.model) {
 			initData = this.model.toJSON();
 			var birthday = initData.birthday;
-			var temp = birthday.replace("-",",");
-			var bday = new Date(temp); 
+			var tmp = birthday.split('-');
+			var bday = new Date(tmp[0],tmp[1]-1,tmp[2]); 
 		}
 		initLevel = (this.model) ?  $.inArray(initData.level,this.d.level) : 0;
 		initRegion = (this.model) ? $.inArray(initData.region,this.d.region) : 0;
@@ -918,8 +919,6 @@ Router = Backbone.Router.extend({
 		this.dancer = new User({id: 1});
 		this.feises = new Feises([],{dancerid: 1});
 		this.dancer.fetch();
-		console.log(this.dancer);
-		//this.dancer.save();
 		this.feises.fetch({data:{ dancerid : this.feises.dancerid }});
 		 //{ this.photos.fetch({ data: { id : this.feis_info.id, type: 'photo' }, success: this.updatePhotosSwiper }); },
 		_.bindAll(this, 'feisPageRoute');
