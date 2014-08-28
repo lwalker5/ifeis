@@ -1,0 +1,241 @@
+define(['jquery','handlebars','underscore','backbone','collections'],function($, Handlebars, _, Backbone, Feises) {
+
+	var MyFeisesView = Backbone.View.extend({
+		el: '#main',
+		className: 'content',
+		events: {
+			'click #add_feis_button': 'showMenu'
+		},
+		initialize: function() {
+			_.bindAll(this, 'render','preRender','addList');
+			//this.preRender();
+			//this.render();
+		},
+		preRender: function() {
+		},
+		render: function() {
+			var template = Handlebars.compile($('#feises_view').html());
+			//this.$el.empty();
+			this.$el.html(template);
+			var formView = new FormView({el: $('#feis_form'), type: 'add-feis'});
+			//this.$el.find('#feis_form').html(formView.render().el);
+			this.addList();
+			this.imgToSvg();
+			//return this;
+		},
+		addList: function() {
+			this.listView = new FeisListView({collection: this.collection});
+			this.$el.find('.feises_list').append(this.listView.render().el);
+			this.listView.populateList();
+			$('#feises_list').css('height',window.innerHeight - 148 + 'px');
+		},
+		showMenu: function() {
+			this.event_aggregator.trigger("showForm");
+		},
+		imgToSvg: function() {
+			$('#region-picker img.svg').each(function(){
+		    var $img = $(this);
+		    var imgID = $img.attr('id');
+		    var imgClass = $img.attr('class');
+		    var imgURL = $img.attr('src');
+
+		    $.get(imgURL, function(data) {
+		        // Get the SVG tag, ignore the rest
+		        var $svg = $(data).find('svg');
+
+		        // Add replaced image's ID to the new SVG
+		        if(typeof imgID !== 'undefined') {
+		            $svg = $svg.attr('id', imgID);
+		        }
+		        // Add replaced image's classes to the new SVG
+		        if(typeof imgClass !== 'undefined') {
+		            $svg = $svg.attr('class', imgClass+' replaced-svg');
+		        }
+
+		        // Remove any invalid XML tags as per http://validator.w3.org
+		        $svg = $svg.removeAttr('xmlns:a');
+
+		        // Replace image with new SVG
+		        $img.replaceWith($svg);
+
+		    }, 'xml');
+
+			});
+		}
+	})
+
+	var FeisListView = Backbone.View.extend({
+		tagName: 'ol',
+		id: 'feis_list',
+		initialize: function() {
+			_.bindAll(this, 'render','addFeis','addMonth','fetchFeis','appendFeis');
+			this.event_aggregator.bind("addFeis:add", this.addFeis);
+			this.collection.bind('add', this.appendFeis);
+			this.months = new Array(13);
+			this.idArray = [];
+			for (var i = 0; i < this.months.length; i++) {
+				this.months[i] = 0;
+			}
+		},
+		render: function() {
+			_(this.collection.models).each(function(feis){ 
+	            //this.appendFeis(feis);
+	          }, this);
+			return this;		
+		},
+
+		addMonth: function(monthNum, month) {
+			var monthView = new MonthView( {id : month, name: month});
+			var prevMonth = 'empty';
+			var i = monthNum - 1;
+			if (monthNum == 1) { $('#feis_list:first-child').prepend(monthView.render().el); }
+
+			else {
+				while (i > 0) { //finds the closest month prior to month being added
+					if (this.months[i] > 0) {
+						prevMonth = numToName(i).slice(0,3);
+						i = -1;
+					}
+					i--;
+				}
+
+				if (prevMonth != 'empty') {
+					this.$el.find('#' + prevMonth).after(monthView.render().el);
+				}
+				else { this.$el.append(monthView.render().el); }
+			}
+		},
+
+		numToName: function(num) {
+			var months={1: 'January',
+						2: 'February',
+						3: 'March',
+						4: 'April',
+						5: 'May',
+						6: 'June',
+						7: 'July',
+						8: 'August',
+						9: 'September',
+						10: 'October',
+						11: 'November',
+						12: 'December'};
+			return months[num];
+		},
+
+		addFeis: function(feisInfo) {
+			//console.log('adding feis');
+			var dancerid = this.collection.dancerid;
+			feisInfo.dancerid = this.collection.dancerid;
+			var feis = new Feis(feisInfo);
+			feis.save(null,{success: this.fetchFeis});
+			//this.collection.add(feis);
+		},
+
+		fetchFeis: function() {
+			this.collection.fetch({add:true, data:{ dancerid : this.collection.dancerid }});
+		},
+
+		populateList: function() {
+			var i = 0;
+			_(this.collection.models).each(function(feis){ 
+					//this.collection.idArray[i] = feis.get('id');
+	        this.appendFeis(feis,false);
+	        i++;
+	    }, this);
+		},
+
+		appendFeis: function(feis, newFeis) {
+			var m = feis.get('month');
+			var month = this.numToName(m).slice(0,3);
+			var feisView = new FeisView({model: feis, collection: this.collection});
+			//var tag = '#'+month+' ol';
+
+			/*if ($.inArray(month,this.months) == -1) { //new month
+				this.months.push(month);
+				this.addMonth(month);
+			}*/
+
+			if (this.months[m] == 0) {
+				this.months[m] = 1;
+				this.addMonth(m,month);
+			}
+
+			else {
+				this.months[m] += 1;
+				if (newFeis) {
+					$('#' + month + ' > header').css({ transition: 'height 1s'});
+					$('#' + month + ' > header .rotate').css({ transition: 'padding 1s'}); 
+				}
+				$('#' + month + ' > header').css('height',(this.months[m] * 52)+'px');
+				$('#' + month + ' > header .rotate').css('padding',(this.months[m] * 21)+'px 0');
+				
+				/*if (newFeis) {
+					$('#' + month + ' > header .rotate').css({ transition: 'padding 1s'}); 
+				}
+				$('#' + month + ' > header .rotate').css('padding',(this.months[m] * 21)+'px 0');*/
+			}
+
+			var day_to_add = parseInt(feis.get('day'));
+			var need_to_add = true;
+			var feises_in_month = $('#' + month + ' ol').children();
+			if (feises_in_month.length >= 1) {
+				var i = 0;
+				while(need_to_add) {
+					var day = parseInt($(feises_in_month[i]).find('h4').text());
+					//console.log(day_to_add + ' : ' + day);
+					console.log($(feisView.render().el))
+					if (day_to_add < day) { console.log('less'); $(feisView.render().el).insertBefore($(feises_in_month[i])); need_to_add = false; }
+					else if (day_to_add > day && i == feises_in_month.length-1) { console.log('more'); $(feisView.render().el).insertAfter($(feises_in_month[i])); need_to_add = false; }
+					else { console.log('unsure'); i++; }
+				}
+			}
+
+			else { $('#' + month + ' ol').append(feisView.render().el); }
+
+
+			if (!newFeis) { $(feisView.render().el).show(); } //just show it normally
+			else { $(feisView.render().el).show('1000ms'); } //'fancy' adding animation
+		}
+	});
+
+	var MonthView = Backbone.View.extend({
+		tagName: 'li',
+		className: 'month',
+		initialize: function(options) {
+			this.options = options || {};
+			this.render();
+			_.bindAll(this, 'render');
+		},
+		render: function() {
+			var data = {'month': this.options.name};
+			//var data = 'bah';
+			var template = Handlebars.compile($('#month_temp').html());
+			var result = template(data);
+			this.$el.html(result);
+			return this;
+		}
+	});
+
+	var FeisView = Backbone.View.extend({
+		tagName: 'li',
+		className: 'hide',
+		initialize: function() {
+			this.render();
+			_.bindAll(this, 'render');
+		},
+		render: function() {
+			var template = Handlebars.compile($('#feis_temp').html());
+			var context = this.model.toJSON();
+			var html = template(context);
+			this.$el.html(html);
+			return this;
+		}
+	});
+
+	return {
+		'MyFeisesView' : MyFeisesView,
+		'FeisListView' : FeisListView,
+		'MonthView': MonthView,
+		'FeisView': FeisView
+	}
+})

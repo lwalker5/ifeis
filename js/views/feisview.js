@@ -20,7 +20,6 @@ Handlebars.registerHelper('NoHyphen', function(object) {
 Handlebars.registerHelper('feisAge', function(object) {
 	var today = new Date(); //Today's date
 
-	//var dateFormat = object.birthday.replace(/-/g,',');
 	var dateArray = object.birthday.split('-')
 	var birthday = new Date(dateArray[0],dateArray[1]-1,dateArray[2]); //Dancer birthday
 
@@ -31,7 +30,7 @@ Handlebars.registerHelper('feisAge', function(object) {
 	}
 	else {feis_age = 'U' + (today.getFullYear() - birthYear); }
 	return new Handlebars.SafeString(feis_age);
-})
+});
 
 Handlebars.registerHelper('placeSuffix', function(object) {
 	var suffix = "";

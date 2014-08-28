@@ -1,0 +1,37 @@
+define(['jquery','handlebars','backbone'], function($, Handlebars, Backbone) {
+
+	var UserView = Backbone.View.extend({
+		el: '#main',
+		events: {
+			'click #edit_info_button' : 'showForm'
+		},
+		initialize: function() {
+			_.bindAll(this, 'render','editDancer','showForm');
+			this.event_aggregator.bind("editDancer", this.editDancer);
+			if (this.model) {
+	            this.model.on('change', this.render, this);
+	        }
+	    this.model.fetch({success: this.render });
+			//this.render();
+		},
+		editDancer: function(formData) {
+			formData['id'] = this.model.id;
+			formData['page'] = 'profile';
+			this.model.save(formData, { success: function () { } });
+		},
+		render: function() {
+			//this.model.fetch({success: this.showForm});
+			var template = Handlebars.compile($('#user_template').html());
+			var context = this.model.toJSON();
+			this.$el.html(template(context));
+			var formView = new FormView({el: $('#edit_info_form'), type: 'settings', model: this.model});
+		},
+		showForm: function() {
+			this.event_aggregator.trigger("showForm");
+		}
+	});
+
+	return {
+		'UserView' : UserView
+	}
+});
