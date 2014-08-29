@@ -419,58 +419,6 @@
 
 	<script id="user_template" type="text/x-handlebars-template">
 		<section id="profile" class="floating">
-			<header>
-				<div id="user_photo" class="inline-block">
-					<img src="img/profile_photo.png"/>
-				</div>
-				<section id="details" class="inline-block">
-					<h1>{{name}}</h1>
-					<h3>{{level}} {{feisAge this}}</h4>
-					<span class="region inline-block">
-						<svg xmlns="http://www.w3.org/2000/svg" class="light" version="1.1" width="130" height="161" viewBox="0 0 130 161"enable-background="new 0 0 130 161">
-						  <path d="M59.78 4.01c4.33 0 8.67 0 13 0 31.14 6.66 59.04 27.04 55.99 61.99 -1.59 18.24-15.18 34.63-25 49.99 -10.54 16.48-18.42 35.76-34 40.99 -2.33 0-4.67 0-7 0 -17.77-6.56-25.79-24.94-36-39C16.27 103.52 8.26 86.28 2.79 68c0-3.33 0-6.67 0-10C8.79 27.01 28.1 9.32 59.78 4.01zM28.79 66c7.32 49.21 91.8 29.91 71.99-20 -6.23-15.69-22.72-22.86-39-21C40.42 27.46 25.41 43.35 28.79 66z"/>
-						</svg>
-						{{region}} Region
-					</span>
-				</section>
-			</header>
-			<section class="profile_section" id="stats">
-				<h2>Feis Statistics for this level</h2>
-				<section class="prelim-only"> 
-					<h3>Progress to Open</h3>
-					<progress max="3" value="1"></progress>
-				</section>
-				<ul id="podium">
-					<li id="podium-second" class="podium-place second">
-						<div class="top"></div>
-						<div class="middle"><img src="img/trophy_silver2x.png"/></div>
-						<div class="bottom"><span class="accent_numbers podium">{{seconds}}</span></div>
-					</li>
-					<li id="podium-first" class="podium-place first">
-						<div class="top"></div>
-						<div class="middle"><img src="img/trophy_gold2x.png"/></div>
-						<div class="bottom"><span class="accent_numbers podium">{{firsts}}</span></div>
-					</li>
-					<li id="podium-third" class="podium-place third">
-						<div class="top"></div>
-						<div class="middle"><img src="img/trophy_bronze2x.png"/></div>
-						<div class="bottom"><span class="accent_numbers podium">{{thirds}}</span></div>
-					</li>
-				</ul>
-				<ul class="vert-list">
-					<li><span class="accent_numbers stats">5</span>Top fives</li>
-					<li><span class="accent_numbers stats">{{placements}}</span>Placements</li>
-				</ul>
-			</section>
-			<section class="profile_section" id="goals">
-				<h2><!--<img src="img/gold_star.png"/>-->Goals</h2>
-				<!--<span class="italic_accent">You can do it!</span>-->
-				<ul class="vert-list" id="goals_list">
-					<li><input type="button" id="g1" class="box inline-block"/><label for="g1"><span>Qualify for Worlds!</span></label></li>
-					<li><input type="button" id="g2" class="box"/><label for="g2"><span>Top three at a feis</span></label></li>
-					<li><input type="button" id="g3" class="box checked"/><label for="g3"><span>Recall at Nationals</span></label></li>
-				</ul>
-			</section>
 		</section>
 		<section class="form_wrapper">
 			<header class="horiz_bar" id="edit_info_button">
@@ -479,6 +427,61 @@
 			</header>
 			<form id="edit_info_form" class="dark level" name="edit-info-form" method="post">
 			</form>
+		</section>
+	</script>
+
+	<script id="profile_template" type="text/x-handlebars-template">
+		<header>
+			<div id="user_photo" class="inline-block">
+				<img src="img/profile_photo.png"/>
+			</div>
+			<section id="details" class="inline-block">
+				<h1>{{name}}</h1>
+				<h3>{{level}} {{feisAge this}}</h4>
+				<span class="region inline-block">
+					<svg xmlns="http://www.w3.org/2000/svg" class="light" version="1.1" width="130" height="161" viewBox="0 0 130 161"enable-background="new 0 0 130 161">
+					  <path d="M59.78 4.01c4.33 0 8.67 0 13 0 31.14 6.66 59.04 27.04 55.99 61.99 -1.59 18.24-15.18 34.63-25 49.99 -10.54 16.48-18.42 35.76-34 40.99 -2.33 0-4.67 0-7 0 -17.77-6.56-25.79-24.94-36-39C16.27 103.52 8.26 86.28 2.79 68c0-3.33 0-6.67 0-10C8.79 27.01 28.1 9.32 59.78 4.01zM28.79 66c7.32 49.21 91.8 29.91 71.99-20 -6.23-15.69-22.72-22.86-39-21C40.42 27.46 25.41 43.35 28.79 66z"/>
+					</svg>
+					{{region}} Region
+				</span>
+			</section>
+		</header>
+		<section class="profile_section" id="stats">
+			<h2>Feis Statistics for this level</h2>
+			<section class="prelim-only"> 
+				<h3>Progress to Open</h3>
+				<progress max="3" value="1"></progress>
+			</section>
+			<ul id="podium">
+				<li id="podium-second" class="podium-place second">
+					<div class="top"></div>
+					<div class="middle"><img src="img/trophy_silver2x.png"/></div>
+					<div class="bottom"><span class="accent_numbers podium">{{seconds}}</span></div>
+				</li>
+				<li id="podium-first" class="podium-place first">
+					<div class="top"></div>
+					<div class="middle"><img src="img/trophy_gold2x.png"/></div>
+					<div class="bottom"><span class="accent_numbers podium">{{firsts}}</span></div>
+				</li>
+				<li id="podium-third" class="podium-place third">
+					<div class="top"></div>
+					<div class="middle"><img src="img/trophy_bronze2x.png"/></div>
+					<div class="bottom"><span class="accent_numbers podium">{{thirds}}</span></div>
+				</li>
+			</ul>
+			<ul class="vert-list">
+				<li><span class="accent_numbers stats">5</span>Top fives</li>
+				<li><span class="accent_numbers stats">{{placements}}</span>Placements</li>
+			</ul>
+		</section>
+		<section class="profile_section" id="goals">
+			<h2><!--<img src="img/gold_star.png"/>-->Goals</h2>
+			<!--<span class="italic_accent">You can do it!</span>-->
+			<ul class="vert-list" id="goals_list">
+				<li><input type="button" id="g1" class="box inline-block"/><label for="g1"><span>Qualify for Worlds!</span></label></li>
+				<li><input type="button" id="g2" class="box"/><label for="g2"><span>Top three at a feis</span></label></li>
+				<li><input type="button" id="g3" class="box checked"/><label for="g3"><span>Recall at Nationals</span></label></li>
+			</ul>
 		</section>
 	</script>
 </body>
