@@ -1,7 +1,7 @@
 //All the views that render on the 'My Feises' page
 //Only need to return MyFeisesView
 
-define(['jquery','handlebars','underscore','backbone','js/collections','js/models','js/views/FormView'],
+define(['jquery', 'handlebars', 'underscore', 'backbone', 'js/collections', 'js/models',  'js/views/form_view'],
 	function($, Handlebars, _, Backbone, Feises, Models, FormView) {
 
 	Handlebars.registerHelper('href', function(object) {
@@ -28,27 +28,10 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 					break;
 			}
 		}
-		else { suffix = ""; }
 		return new Handlebars.SafeString(suffix);
 	});
 
-	var numToName = function(num) {
-		var months={1: 'January',
-					2: 'February',
-					3: 'March',
-					4: 'April',
-					5: 'May',
-					6: 'June',
-					7: 'July',
-					8: 'August',
-					9: 'September',
-					10: 'October',
-					11: 'November',
-					12: 'December'};
-		return months[num];
-	};
-
-
+	//The main view accessed by navigating to 'my feises'
 	var MyFeisesView = Backbone.View.extend({
 		el: '#main',
 		className: 'content',
@@ -56,32 +39,26 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 			'click #add_feis_button': 'showMenu'
 		},
 		initialize: function() {
-			_.bindAll(this, 'render','preRender','addList');
-			//this.preRender();
-			//this.render();
-		},
-		preRender: function() {
+			_.bindAll(this, 'render','addList');
 		},
 		render: function() {
 			var template = Handlebars.compile($('#feises_view').html());
-			//this.$el.empty();
 			this.$el.html(template);
+
 			var formView = new FormView({el: $('#feis_form'), type: 'add-feis'});
-			//this.$el.find('#feis_form').html(formView.render().el);
 			this.addList();
 			this.imgToSvg();
-			//return this;
 		},
 		addList: function() {
 			this.listView = new FeisListView({collection: this.collection});
 			this.$el.find('.feises_list').append(this.listView.render().el);
-			this.listView.populateList();
+			this.listView.populateList(); //add the feises already in the collection
 			$('#feises_list').css('height',window.innerHeight - 148 + 'px');
 		},
 		showMenu: function() {
 			this.event_aggregator.trigger("showForm");
 		},
-		imgToSvg: function() {
+		imgToSvg: function() { //Convert so css styling (colors changes) can be used for svgs 
 			$('#region-picker img.svg').each(function(){
 		    var $img = $(this);
 		    var imgID = $img.attr('id');
@@ -117,9 +94,9 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 		tagName: 'ol',
 		id: 'feis_list',
 		initialize: function() {
-			_.bindAll(this, 'render','addFeis','addMonth','fetchFeis','appendFeis');
+			_.bindAll(this, 'render', 'addFeis', 'addMonth', 'fetchFeis', 'displayFeis');
 			this.event_aggregator.bind("addFeis:add", this.addFeis);
-			this.collection.bind('add', this.appendFeis);
+			this.collection.bind('add', this.displayFeis);
 			this.months = new Array(13);
 			this.idArray = [];
 			for (var i = 0; i < this.months.length; i++) {
@@ -127,56 +104,57 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 			}
 		},
 		render: function() {
-			_(this.collection.models).each(function(feis){ 
+			/*_(this.collection.models).each(function(feis){ 
 	            //this.appendFeis(feis);
-	          }, this);
+	          }, this);*/
 			return this;		
 		},
 
-		addMonth: function(monthNum, month) {
-			var monthView = new MonthView( {id : month, name: month});
-			var prevMonth = 'empty';
-			var i = monthNum - 1;
-			if (monthNum == 1) { $('#feis_list:first-child').prepend(monthView.render().el); }
+		addMonth: function(monthToAdd, month) { 
+			var monthView = new MonthView( {id : month, name: month}),
+				prevMonth, //so far we don't know which month view it needs to succeed
+				monthsFeisCount = this.months, //ex: [0,1,0,2,3] 
+				monthCounter = monthToAdd - 1; //starting the check with the month before
+
+			if (monthToAdd == 1) { $('#feis_list:first-child').prepend(monthView.render().el); } //If January is added, simply prepend
 
 			else {
-				while (i > 0) { //finds the closest month prior to month being added
-					if (this.months[i] > 0) {
-						prevMonth = numToName(i).slice(0,3);
-						i = -1;
+				while (monthCounter > 0) { //finds the closest month prior to month being added
+					if (monthsFeisCount[monthCounter] > 0) { //if a feis exists in the month (ie the view is rendered)
+						prevMonth = this.numToName(monthCounter).slice(0,3); //first three letters for header
+						monthCounter = -1;
 					}
-					i--;
+					monthCounter--;
 				}
 
-				if (prevMonth != 'empty') {
+				if (prevMonth != undefined) { 
 					this.$el.find('#' + prevMonth).after(monthView.render().el);
 				}
-				else { this.$el.append(monthView.render().el); }
+				else { this.$el.append(monthView.render().el); } // no months are rendered yet so just add this one
 			}
 		},
 
 		numToName: function(num) {
-			var months={1: 'January',
-						2: 'February',
-						3: 'March',
-						4: 'April',
-						5: 'May',
-						6: 'June',
-						7: 'July',
-						8: 'August',
-						9: 'September',
-						10: 'October',
-						11: 'November',
-						12: 'December'};
+			var months= { 1: 'January',
+						  2: 'February',
+						  3: 'March',
+						  4: 'April',
+						  5: 'May',
+						  6: 'June',
+						  7: 'July',
+						  8: 'August',
+						  9: 'September',
+						  10: 'October',
+						  11: 'November',
+						  12: 'December' };
 			return months[num];
 		},
 
 		addFeis: function(feisInfo) {
-			var dancerid = this.collection.dancerid;
+			var feis; //new feis model		
 			feisInfo.dancerid = this.collection.dancerid;
-			var feis = new Models['Feis'](feisInfo);
-			feis.save(null,{success: this.fetchFeis});
-			//this.collection.add(feis);
+			feis = new Models['Feis'](feisInfo);
+			feis.save(null, { success: this.fetchFeis });
 		},
 
 		fetchFeis: function() {
@@ -186,51 +164,60 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 		populateList: function() {
 			var i = 0;
 			_(this.collection.models).each(function(feis){ 
-	        this.appendFeis(feis,false);
-	        i++;
-	    }, this);
+		        this.displayFeis(feis,false);
+		        i++;
+		    }, this);
 		},
 
-		appendFeis: function(feis, newFeis) {
-			var m = feis.get('month');
-			var month = this.numToName(m).slice(0,3);
-			var feisView = new FeisView({model: feis, collection: this.collection});
+		displayFeis: function(feis, animate) {
+			var monthNum = feis.get('month'),
+				monthName = this.numToName(monthNum).slice(0,3),
+				feisCountPerMonth = this.months,
+				feisView = new FeisView({model: feis, collection: this.collection}),
 
-			if (this.months[m] == 0) {
-				this.months[m] = 1;
-				this.addMonth(m,month);
-			}
+				extendMonthLabel = function() {
+					if (animate) { //Only want to animate the add if new
+						$('#' + monthName + ' > header').css({ transition: 'height 1s'});
+						$('#' + monthName + ' > header .rotate').css({ transition: 'padding 1s'}); 
+					}
+					$('#' + monthName + ' > header').css('height',(feisCountPerMonth[monthNum] * 52)+'px');
+					$('#' + monthName + ' > header .rotate').css('padding',(feisCountPerMonth[monthNum] * 21)+'px 0');
+				},
+				insertFeisView = function() {
+					var dayToAdd = parseInt(feis.get('day')),
+						needToAdd = true,
+						feisesInMonth = $('#' + monthName + ' ol').children(),
+						i = 0; //counter
 
-			else {
-				this.months[m] += 1;
-				if (newFeis) { //Only want to animate the add if new
-					$('#' + month + ' > header').css({ transition: 'height 1s'});
-					$('#' + month + ' > header .rotate').css({ transition: 'padding 1s'}); 
-				}
-				$('#' + month + ' > header').css('height',(this.months[m] * 52)+'px');
-				$('#' + month + ' > header .rotate').css('padding',(this.months[m] * 21)+'px 0');
-			}
+					//algorithm to figure out where feis should be placed in month
+					if (feisesInMonth.length >= 1) {
+						while(needToAdd) {
+							var day = parseInt($(feisesInMonth[i]).find('h4').text());
+							if (dayToAdd < day) { 
+								$(feisView.render().el).insertBefore($(feisesInMonth[i])); 
+								needToAdd = false; 
+							}
+							else if (dayToAdd > day && i == feisesInMonth.length-1) { 
+								$(feisView.render().el).insertAfter($(feisesInMonth[i])); 
+								needToAdd = false; 
+							}
+							else { i++; }
+						}
+					}
 
-			var day_to_add = parseInt(feis.get('day'));
-			var need_to_add = true;
-			var feises_in_month = $('#' + month + ' ol').children();
+					else { $('#' + monthName + ' ol').append(feisView.render().el); }
+				},
+				showFeisView = function() {
+					if (animate) { $(feisView.render().el).show('1000ms'); }
+					else { $(feisView.render().el).show(); }
+				};
 
-			//algorithm to figure out where feis should be placed in month
-			if (feises_in_month.length >= 1) {
-				var i = 0;
-				while(need_to_add) {
-					var day = parseInt($(feises_in_month[i]).find('h4').text());
-					if (day_to_add < day) { $(feisView.render().el).insertBefore($(feises_in_month[i])); need_to_add = false; }
-					else if (day_to_add > day && i == feises_in_month.length-1) { $(feisView.render().el).insertAfter($(feises_in_month[i])); need_to_add = false; }
-					else { i++; }
-				}
-			}
+			//if this is the first feis added for this month, simply add it, otherwise need to widen the side label
+			feisCountPerMonth[monthNum] += 1;
+			(feisCountPerMonth[monthNum] == 1) ? this.addMonth(monthNum,monthName) : extendMonthLabel();
 
-			else { $('#' + month + ' ol').append(feisView.render().el); }
-
-
-			if (!newFeis) { $(feisView.render().el).show(); } //just show it normally
-			else { $(feisView.render().el).show('1000ms'); } //'fancy' adding animation
+			insertFeisView();
+			showFeisView();
 		}
 	});
 
@@ -243,10 +230,10 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 			_.bindAll(this, 'render');
 		},
 		render: function() {
-			var data = {'month': this.options.name};
-			//var data = 'bah';
-			var template = Handlebars.compile($('#month_temp').html());
-			var result = template(data);
+			var data = {'month': this.options.name},
+				template = Handlebars.compile($('#month_temp').html()),
+				result = template(data);
+
 			this.$el.html(result);
 			return this;
 		}
@@ -268,5 +255,5 @@ define(['jquery','handlebars','underscore','backbone','js/collections','js/model
 		}
 	});
 
-	return MyFeisesView;
+	return MyFeisesView; //The entire page, no need to access smaller month and feis outside of this
 })

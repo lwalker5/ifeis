@@ -1,7 +1,7 @@
 //FeisPageView + Helpers
 //Page that shows when a feis is clicked on from main list. Results, Marks, Photos sections
 
-define(['jquery','handlebars','underscore','backbone','swiper','js/collections','js/models','js/views/FormView'],
+define(['jquery','handlebars','underscore','backbone','swiper','js/collections','js/models','js/views/form_view'],
 	function($, Handlebars, _, Backbone, swiper, Collections, FormView) {
 
 	Handlebars.registerHelper('fullDate', function(object) {
