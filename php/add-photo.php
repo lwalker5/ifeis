@@ -1,7 +1,6 @@
 <?php
-	include 'ChromePhp.php';
+	//include 'ChromePhp.php';
 	//ChromePhp::log('hello world');
-	//echo json_encode($return);
 
 	$username = "root";
 	$password = "#Planxty69";
@@ -16,10 +15,7 @@
 	}
 
 	$request_method = strtolower($_SERVER['REQUEST_METHOD']);
-	//$data = null;
-	//extract($_POST);
-	//ChromePhp::log($_POST);
-	//ChromePhp::log($request_method);
+
 	switch ($request_method) {
     	case 'post':
     		define('SITE_ROOT',realpath('../'));
@@ -41,21 +37,18 @@
     	case 'put':
     		break;
     	case 'get':
-    		ChromePhp::log($_GET);
 			$id = &$_GET['id'];
 			$type = &$_GET['type'];
 			$query = "SELECT photo_id as id, name FROM photos where feis_id = '".$id."' and type='".$type."'";
 			$result = mysqli_query($link, $query);
 
 			if (mysqli_num_rows($result)!=0) {
-				ChromePhp::log('woot');
 				while($row = mysqli_fetch_assoc($result)) {
 					$photos[] = $row;
 				}
 				echo json_encode($photos);
 			}
 			else {
-				ChromePhp::log('bah');
 				$feis[0] = '0';
 				echo json_encode($photos);
 			}
