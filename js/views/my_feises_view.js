@@ -153,9 +153,10 @@ define(['jquery', 'handlebars', 'underscore', 'backbone', 'js/collections', 'js/
 		addFeis: function(feisInfo) { 
 			var feis; //new feis model		
 			feisInfo.dancerid = this.collection.dancerid;
+			feisInfo.id = this.collection.length + 1;
 			feis = new Models['Feis'](feisInfo);
-			//this.collection.add(feis);
-			feis.save(null, { success: this.fetchFeis });
+			this.collection.add(feis);
+			//feis.save(null, { success: this.fetchFeis });
 		},
 
 		fetchFeis: function() {

@@ -18,7 +18,6 @@ define(['underscore','backbone'], function(_, Backbone) {
 	});
 
 	var Feis = Backbone.Model.extend({
-		url: "php/add-feis.php",
 		defaults: {
 			name: 'Inishfree',
 			month: 1,

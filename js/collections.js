@@ -12,7 +12,7 @@ define(['underscore','backbone','js/models'], function(_, Backbone, Models) {
 			this.dancerid = options.dancerid;
 		},
 		model: Models['Feis'],
-		url: "php/config.php"
+		url: "json/feises.json"
 	});
 
 	return {
