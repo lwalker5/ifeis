@@ -1,7 +1,7 @@
 //Bootstrap - Start here!
 //Lindsay Walker - iFeis 2014
 
-define(['jquery','backbone','js/router','js/views/HeaderView'], function($, Backbone, Router, HeaderView) {
+define(['jquery','backbone','js/router','js/views/header_view'], function($, Backbone, Router, HeaderView) {
 	
 	var initialize = function() {
 

@@ -1,8 +1,8 @@
 //Router - controls the navigation
 
 define(['jquery','handlebars','underscore','backbone','js/manager',
-		'js/collections','js/models','js/views/UserView','js/views/my_feises_view',
-		'js/views/FeisPageView','js/views/CustomizePageView'],
+		'js/collections','js/models','js/views/user_view','js/views/my_feises_view',
+		'js/views/feis_page_view','js/views/customize_page_view'],
 		function($, Handlebars, _, Backbone, ViewManager,
 				 Collections, Models, UserView, MyFeisesView,
 				 FeisPageView, CustomizePageView) {

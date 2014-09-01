@@ -150,10 +150,11 @@ define(['jquery', 'handlebars', 'underscore', 'backbone', 'js/collections', 'js/
 			return months[num];
 		},
 
-		addFeis: function(feisInfo) {
+		addFeis: function(feisInfo) { 
 			var feis; //new feis model		
 			feisInfo.dancerid = this.collection.dancerid;
 			feis = new Models['Feis'](feisInfo);
+			//this.collection.add(feis);
 			feis.save(null, { success: this.fetchFeis });
 		},
 
