@@ -81,7 +81,6 @@ define(['jquery', 'handlebars', 'underscore', 'backbone'], function($, Handlebar
 
 			data['page'] = 'customize';
 			data['id'] = this.model.id;
-			this.model.save(data, {success: function() {} });
 		}
 	});
 	

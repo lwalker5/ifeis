@@ -8,12 +8,15 @@ define(['underscore','backbone'], function(_, Backbone) {
 	});
 
 	var User = Backbone.Model.extend({
-		url: "php/edit-dancer.php",
 		defaults: { 
 			name: 'Lindsay',
 			birthday: '1990-10-04',
 			region: 'Mid-Atlantic',
-			level: 'Open Championship'
+			level: 'Open Championship',
+			firsts: '0',
+			seconds: '1',
+			thirds: '0',
+			placements: '1'
 		}
 	});
 

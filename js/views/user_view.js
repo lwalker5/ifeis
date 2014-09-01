@@ -42,12 +42,17 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 		initialize: function() {
 			_.bindAll(this, 'render','editDancer','showForm');
 			this.event_aggregator.bind("editDancer", this.editDancer);
-	    	this.model.fetch({success: this.render });
+			this.render();
+	    	//this.model.fetch({success: this.render });
 		},
 		editDancer: function(formData) {
 			formData['id'] = this.model.id;
 			formData['page'] = 'profile';
-			this.model.save(formData, { success: function () { } });
+			console.log(formData);
+			console.log(this.model);
+			this.model.set({'name': formData.name, 'birthday': formData.birthday, 'region': formData.region, 'level': formData.level })
+			console.log(this.model);
+			//this.model.save(formData, { success: function () { } });
 		},
 		render: function() {
 			var template = Handlebars.compile($('#user_template').html());

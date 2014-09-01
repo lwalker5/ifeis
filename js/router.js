@@ -18,7 +18,7 @@ define(['jquery','handlebars','underscore','backbone','js/manager',
 				initialize: function() {
 					this.dancer = new Models['User']({id: 1});
 					this.feises = new Collections['Feises']([],{dancerid: 1});
-					this.dancer.fetch();
+					//this.dancer.fetch();
 					this.feises.fetch({data:{ dancerid : this.feises.dancerid }});
 					_.bindAll(this, 'feisPageRoute');
 					this.Manager = new ViewManager();
