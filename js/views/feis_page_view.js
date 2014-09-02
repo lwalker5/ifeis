@@ -163,12 +163,12 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 					slidesPerView: 2
 				});
 				console.log(this.photos);
+				console.log(this.swipers);
 				for (var l = 0; l < photoList.length; l++) {
 					var slide_string = '<img src="img/feis_photos/'+photoList.toJSON()[l]['name'] +'"/>';
 					console.log(slide_string);
 					var newSlide = this.swipers['photos'].createSlide(slide_string,'photo swiper-slide');
 					console.log(newSlide);
-					//.createSlide(slide_string,'photo swiper-slide');
 					newSlide.prepend();
 				}
 			}

@@ -95,16 +95,15 @@ define(['jquery','handlebars','underscore','backbone','swiper'],function($, Hand
 		},
 		resetSwipers: function(){
 			var today = new Date(),
-				currYear = today.getFullYear,
+				currYear = today.getFullYear(),
 				yearIndex = currYear - 1950,
 				swipers = ['daySwiper','monthSwiper','regionSwiper'];
-
 			$('#form_name').val(''); //empty the text input
 			for (var i = 0; i < swipers.length; i++) {
 				this.swipers[swipers[i]].swipeTo(0,1000,false); 
 			}
 
-			this.swipers.yearSwiper.swipeTo(yearIndex,1000,false);
+			this.swipers['yearSwiper'].swipeTo(yearIndex,1000,false);
 		},
 		oK: function(event) {
 			var formData = {};
