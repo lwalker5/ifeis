@@ -8,7 +8,7 @@
 	$dbname = "ifeis";
 
 
-	$link = mysqli_connect($hostname, $username, $password, $dbname);
+	//$link = mysqli_connect($hostname, $username, $password, $dbname);
 
 	if (mysqli_connect_errno()) {
 		die("Unable to connect!");
@@ -28,10 +28,10 @@
 			$path = SITE_ROOT."/img/feis_photos/";
 			$target = $path.$newname;
 			$result = move_uploaded_file($_FILES['image']['tmp_name'], $target);
-			$query = "INSERT INTO photos VALUES ('".$_POST['feis_id']."','".$newname."',0,'".$type."')";
+			//$query = "INSERT INTO photos VALUES ('".$_POST['feis_id']."','".$newname."',0,'".$type."')";
 
-			mysqli_query($link, $query);
-			mysqli_close($link);
+			//mysqli_query($link, $query);
+			//mysqli_close($link);
 			echo $result;
     		break;
     	case 'put':
@@ -40,7 +40,7 @@
 			$id = &$_GET['id'];
 			$type = &$_GET['type'];
 			$query = "SELECT photo_id as id, name FROM photos where feis_id = '".$id."' and type='".$type."'";
-			$result = mysqli_query($link, $query);
+			/*$result = mysqli_query($link, $query);
 
 			if (mysqli_num_rows($result)!=0) {
 				while($row = mysqli_fetch_assoc($result)) {
@@ -53,7 +53,7 @@
 				echo json_encode($photos);
 			}
 			mysqli_query($link, $query);
-			mysqli_close($link);
+			mysqli_close($link);*/
     		break;
 	}
 ?>
