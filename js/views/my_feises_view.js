@@ -155,6 +155,7 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 			feisInfo.dancerid = this.collection.dancerid;
 			feisInfo.id = this.collection.length + 1;
 			feisInfo.photos = new Collections['Photos']();
+			feisInfo.marks = new Collections['Photos']();
 			feis = new Models['Feis'](feisInfo);
 			this.collection.add(feis);
 			//feis.save(null, { success: this.fetchFeis });
@@ -168,6 +169,12 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 			var i = 0;
 			_(this.collection.models).each(function(feis){ 
 		        this.displayFeis(feis,false);
+		        if (!feis.has("photos")) { 
+		        	feis.set({"photos": new Collections['Photos']});
+		        }
+		  		if (!feis.has("marks")) { 
+		        	feis.set({"marks": new Collections['Photos']});
+		        }      
 		        i++;
 		    }, this);
 		},

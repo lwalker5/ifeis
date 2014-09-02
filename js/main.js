@@ -17,6 +17,9 @@ requirejs.config({
 		},
 		'handlebars': {
 			'exports': 'Handlebars'
+		},
+		'swiper':{
+			'exports': 'swiper'
 		}
 	}
 });

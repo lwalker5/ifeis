@@ -1,6 +1,6 @@
 //Form View - used for 'Add Feis' (on my feises) and 'Edit Info' (on profile) forms
 
-define(['jquery','handlebars','underscore','backbone','swiper'],function($, Handlebars, _, Backbone, swiper) {
+define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Handlebars, _, swiper, Backbone) {
 
 	Handlebars.registerHelper('NoHyphen', function(object) {
 		var newObject = object.replace("-"," ");
@@ -70,7 +70,6 @@ define(['jquery','handlebars','underscore','backbone','swiper'],function($, Hand
 				centeredSlides: true,
 				watchActiveIndex: true
 			});
-			console.log(this.swipers);
 			if (this.options.type == "settings") {
 				this.swipers['levelSwiper'] = $('#level_picker').swiper({
 					mode:'horizontal',
@@ -162,11 +161,12 @@ define(['jquery','handlebars','underscore','backbone','swiper'],function($, Hand
 							 'Prizewinner',
 							 'Prelim-Championship',
 							 'Open-Championship'];
-			if (this.model) { data['name'] = this.model.toJSON().name; }
+			if (this.model) { data['name'] = this.model.get('name'); }
 			if (this.options.type == 'settings') { data['settings'] = true; };
 			return data;
 		},
 		render: function() {
+			this.d = this.dataHelper();
 			var template = Handlebars.compile($('#form_template_alt').html()),
 				result = template(this.d);
 			this.$el.html(result);
