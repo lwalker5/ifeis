@@ -35,9 +35,10 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 			'click #cancel-edit': 'toggleEdit',
 			'click #submit-edit': 'oK'
 		},
-		initialize: function() {
-			_.bindAll(this,'render','getPhotos','getMarks','openPhotoMenu','openMarksMenu','updatePhotosSwiper','updateMarksSwiper',
-										 'addPhoto','updateSwiper','initResultSwipers','editResult', 'oK', 'updateResult' );
+		initialize: function(options) {
+		this.options = options;
+		_.bindAll(this,'render','getPhotos','getMarks','openPhotoMenu','openMarksMenu','updatePhotosSwiper','updateMarksSwiper',
+				  'addPhoto','updateSwiper','initResultSwipers','editResult', 'oK', 'updateResult' );
 	    if (this.model) {
 	        this.model.on('change', this.updateResult, this);
 	    }
@@ -222,13 +223,24 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 				else if (placeInput == p) { resultcode[p] = 1; } //new top three result
 			}
 
-			this.model.save({place: placeInput,
+			//console.log(this.options.dancer);
+			var dancer = this.options.dancer;
+			var placements = parseInt(dancer.get('placements')) + resultcode[0],
+				firsts = parseInt(dancer.get('firsts')) + resultcode[1],
+				seconds = parseInt(dancer.get('seconds')) + resultcode[2],
+				thirds = parseInt(dancer.get('thirds')) + resultcode[3];
+
+			this.options.dancer.set({'placements': placements, 'firsts': firsts, 'seconds': seconds, 'thirds': thirds});
+	
+			this.model.set({'place': placeInput, 'competitors': compInput, 'resultcode': resultcode});
+			
+			/*this.model.save({place: placeInput,
 											 competitors: compInput,
 											 placementbool: new_placement_bool,
 											 resultcode: resultcode,
 											 dancerid: this.collection.dancerid }, 
 							{success: function () { } 
-			});
+			});*/
 			this.toggleEdit();
 		}
 	});

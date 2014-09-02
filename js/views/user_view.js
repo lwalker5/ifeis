@@ -48,10 +48,7 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 		editDancer: function(formData) {
 			formData['id'] = this.model.id;
 			formData['page'] = 'profile';
-			console.log(formData);
-			console.log(this.model);
 			this.model.set({'name': formData.name, 'birthday': formData.birthday, 'region': formData.region, 'level': formData.level })
-			console.log(this.model);
 			//this.model.save(formData, { success: function () { } });
 		},
 		render: function() {

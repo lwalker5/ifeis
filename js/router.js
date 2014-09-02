@@ -28,12 +28,11 @@ define(['jquery','handlebars','underscore','backbone','js/manager',
 					this.Manager.show(userView);
 				},
 				feisListRoute: function() { 
-					console.log(this.feises);
 					var myfeisesview = new MyFeisesView({ id: 'feises', collection: this.feises });
 					this.Manager.show(myfeisesview);
 				},
 				feisPageRoute: function(id) {
-					var feispageView = new FeisPageView({model: this.feises.get(id), collection: this.feises, id: 'feis-page' });
+					var feispageView = new FeisPageView({model: this.feises.get(id), collection: this.feises, id: 'feis-page', dancer: this.dancer });
 					this.Manager.show(feispageView);
 				},
 				customizeRoute: function() {
