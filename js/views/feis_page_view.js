@@ -2,7 +2,7 @@
 //Page that shows when a feis is clicked on from main list. Results, Marks, Photos sections
 
 define(['jquery','handlebars','underscore','backbone','swiper','js/collections','js/models','js/views/form_view'],
-	function($, Handlebars, _, Backbone, swiper, Collections, FormView) {
+	function($, Handlebars, _, Backbone, swiper, Collections, Models, FormView) {
 
 	Handlebars.registerHelper('fullDate', function(object) {
 	  return new Handlebars.SafeString(
@@ -57,8 +57,9 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 	    this.feis_info.prev_feis_id = prev_feis_model.get('id');
 
 			this.swipers = [];
-			this.photos = new Collections['Photos']();
-			this.getPhotos(); //populate photos collection
+			//this.photos = new Collections['Photos']();
+			this.photos = this.model.get('photos');
+			this.updatePhotosSwiper(); //populate photos collection
 			this.marks = new Collections['Photos']();
 			this.getMarks(); //populate marks collection
 		},
@@ -98,7 +99,7 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 
 				if (type=="photo") {
 					image = $('#photo-upload')[0].files[0]; 
-					fcn = this.getPhotos;
+					fcn = this.updatePhotosSwiper;
 				}
 				else if (type=="marks") { 
 					image = $('#marks-upload')[0].files[0]; 
@@ -114,10 +115,16 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 				formData.append('feis_id',this.feis_info.id);
 				formData.append('image_prefix',image_prefix);
 				formData.append('type',type);
+				console.log(image_prefix);
+				console.log(ext);
 
-				//var photo = new Photo({id: (this.photos.length + this.marks.length + 1), name : feis_name_no_spaces+image_prefix+ext });
-				//this.photos.add(photo);
+				var photo = new Models['Photo']({id: (this.photos.length + this.marks.length + 1), 'name' : feis_name_no_spaces+image_prefix+ext });
+				this.photos.add(photo);
 
+				console.log(photo);
+				//this.model.photos.add(photo);
+				this.model.set({'photos': this.model.get('photos').add(photo)});
+				console.log(this.model);
 				$.ajax({
 		        	url: 'php/add-photo.php',
 		        	type: 'post',
@@ -125,8 +132,9 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 		        	processData: false,
 		        	contentType: false,
 		        	success: fcn
-		    });	
-		  }
+		   		});
+		   		//fcn();	
+		  	}
 		},
 		updateMarksSwiper: function() { 
 			if (this.marks.length > 0) {
@@ -154,9 +162,13 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 					mode: 'horizontal',
 					slidesPerView: 2
 				});
+				console.log(this.photos);
 				for (var l = 0; l < photoList.length; l++) {
 					var slide_string = '<img src="img/feis_photos/'+photoList.toJSON()[l]['name'] +'"/>';
-					var newSlide = this.swipers[type].createSlide(slide_string,'photo swiper-slide');
+					console.log(slide_string);
+					var newSlide = this.swipers['photos'].createSlide(slide_string,'photo swiper-slide');
+					console.log(newSlide);
+					//.createSlide(slide_string,'photo swiper-slide');
 					newSlide.prepend();
 				}
 			}

@@ -1,6 +1,6 @@
 //Form View - used for 'Add Feis' (on my feises) and 'Edit Info' (on profile) forms
 
-define(['jquery','handlebars','swiper','underscore','backbone'],function($, Handlebars, swipers, _, Backbone) {
+define(['jquery','handlebars','underscore','backbone','swiper'],function($, Handlebars, _, Backbone, swiper) {
 
 	Handlebars.registerHelper('NoHyphen', function(object) {
 		var newObject = object.replace("-"," ");
@@ -70,6 +70,7 @@ define(['jquery','handlebars','swiper','underscore','backbone'],function($, Hand
 				centeredSlides: true,
 				watchActiveIndex: true
 			});
+			console.log(this.swipers);
 			if (this.options.type == "settings") {
 				this.swipers['levelSwiper'] = $('#level_picker').swiper({
 					mode:'horizontal',

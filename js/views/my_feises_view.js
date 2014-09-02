@@ -1,8 +1,8 @@
 //All the views that render on the 'My Feises' page
 //Only need to return MyFeisesView
 
-define(['jquery', 'handlebars', 'underscore', 'backbone', 'js/collections', 'js/models',  'js/views/form_view'],
-	function($, Handlebars, _, Backbone, Feises, Models, FormView) {
+define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collections', 'js/models',  'js/views/form_view'],
+	function($, _, Backbone, Handlebars, swiper, Collections, Models, FormView) {
 
 	Handlebars.registerHelper('href', function(object) {
 	  return new Handlebars.SafeString(
@@ -154,6 +154,7 @@ define(['jquery', 'handlebars', 'underscore', 'backbone', 'js/collections', 'js/
 			var feis; //new feis model		
 			feisInfo.dancerid = this.collection.dancerid;
 			feisInfo.id = this.collection.length + 1;
+			feisInfo.photos = new Collections['Photos']();
 			feis = new Models['Feis'](feisInfo);
 			this.collection.add(feis);
 			//feis.save(null, { success: this.fetchFeis });
