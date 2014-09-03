@@ -7,9 +7,13 @@ define(['jquery','backbone','js/router','js/views/header_view'], function($, Bac
 
 		Backbone.View.prototype.event_aggregator = _.extend({}, Backbone.Events);
 		Backbone.View.prototype.close = function(){
+			console.log('to unbind: ');
+			console.log(this);
 		  this.$el.empty(); //clear the area
 		  this.undelegateEvents();
 		  this.event_aggregator.unbind('addFeis:add',this.addFeis);
+		  this.event_aggregator.unbind('editDancer',this.editDancer);
+		  this.event_aggregator.unbind('showForm',this.toggleMenu);
 		  this.unbind();
 		  if (this.model) { this.model.unbind( 'change', this.render, this ); } //don't want hidden views re-rendering on model change 
 		  if (this.collection) { this.collection.unbind('add'); }

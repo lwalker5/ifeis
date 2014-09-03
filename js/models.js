@@ -13,10 +13,10 @@ define(['underscore','backbone'], function(_, Backbone) {
 			birthday: '1990-10-04',
 			region: 'Mid-Atlantic',
 			level: 'Open Championship',
-			firsts: '0',
-			seconds: '1',
-			thirds: '0',
-			placements: '1'
+			firsts: "0",
+			seconds: "1",
+			thirds: "0",
+			placements: "1"
 		}
 	});
 
@@ -29,7 +29,7 @@ define(['underscore','backbone'], function(_, Backbone) {
 			region: 'MAR',
 			place: null,
 			competitors: null,
-			placementbool: null
+			placementbool: 1
 		}
 	});
 

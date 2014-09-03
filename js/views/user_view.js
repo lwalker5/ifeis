@@ -28,6 +28,7 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 			this.render();
 		},
 		render: function() {
+			console.log(this);
 			var template = Handlebars.compile($('#profile_template').html()),
 			result = template(this.model.toJSON());
 			this.$el.html(result);
@@ -40,9 +41,8 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 			'click #edit_info_button' : 'showForm'
 		},
 		initialize: function() {
-			_.bindAll(this, 'render','editDancer','showForm');
+			_.bindAll(this, 'render','editDancer','showForm','close');
 			this.event_aggregator.bind("editDancer", this.editDancer);
-			this.render();
 	    	//this.model.fetch({success: this.render });
 		},
 		editDancer: function(formData) {
@@ -55,11 +55,19 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 			var template = Handlebars.compile($('#user_template').html());
 			var context = this.model.toJSON();
 			this.$el.html(template);
-			var profileView = new ProfileView({el: $('#profile'), model: this.model});
-			var formView = new FormView({el: $('#edit_info_form'), type: 'settings', model: this.model});
+			this.profileView = new ProfileView({el: $('#profile'), model: this.model});
+			this.formView = new FormView({el: $('#edit_info_form'), type: 'settings', model: this.model});
+			console.log(this.formView);
 		},
 		showForm: function() {
 			this.event_aggregator.trigger("showForm");
+		},
+		close: function() {
+			this.profileView.close();
+			this.formView.close();
+			this.$el.empty();
+		  	this.undelegateEvents();
+		  	this.unbind();
 		}
 	});
 

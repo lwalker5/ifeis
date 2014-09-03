@@ -24,6 +24,7 @@ define(['jquery','handlebars','underscore','backbone','js/manager',
 					this.Manager = new ViewManager();
 				},
 				profileRoute: function() {
+					console.log('routing to profile');
 					var userView = new UserView({ id: 'profile', model: this.dancer });
 					this.Manager.show(userView);
 				},

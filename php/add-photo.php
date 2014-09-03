@@ -27,6 +27,8 @@
 			$newname = $feis_name.$image_prefix.".".$ext;
 			$path = SITE_ROOT."/img/feis_photos/";
 			$target = $path.$newname;
+			//FB::log($target);
+			//ChromePhp::log($target);
 			$result = move_uploaded_file($_FILES['image']['tmp_name'], $target);
 			//$query = "INSERT INTO photos VALUES ('".$_POST['feis_id']."','".$newname."',0,'".$type."')";
 

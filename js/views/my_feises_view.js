@@ -39,13 +39,13 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 			'click #add_feis_button': 'showMenu'
 		},
 		initialize: function() {
-			_.bindAll(this, 'render','addList');
+			_.bindAll(this, 'render','addList','close');
 		},
 		render: function() {
 			var template = Handlebars.compile($('#feises_view').html());
 			this.$el.html(template);
 
-			var formView = new FormView({el: $('#feis_form'), type: 'add-feis'});
+			this.formView = new FormView({el: $('#feis_form'), type: 'add-feis'});
 			this.addList();
 			this.imgToSvg();
 		},
@@ -87,6 +87,16 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 		    }, 'xml');
 
 			});
+		},
+		close: function() {
+			this.formView.close();
+			this.$el.empty();
+			//this.remove();
+			//this.unbind();
+			this.undelegateEvents();
+		  	/*this.event_aggregator.unbind('addFeis:add',this.addFeis);
+		  	this.event_aggregator.unbind('showForm',this.toggleMenu);*/
+
 		}
 	})
 

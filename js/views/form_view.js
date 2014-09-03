@@ -15,13 +15,15 @@ define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Han
 		},
 		initialize: function(options) {
 			this.options = options;
-			_.bindAll(this, 'render','toggleMenu','initSwipers','resetSwipers');
+			_.bindAll(this, 'render','toggleMenu','initSwipers','resetSwipers','close');
 
 			this.swipers = [];
 			this.d = this.dataHelper();
 			this.event_aggregator.bind("showForm", this.toggleMenu);
 			this.render();
-			if (this.model) { this.model.on('change', this.render, this); }
+			console.log("form model:");
+			console.log(this.model);
+			if (this.model) { console.log('it here'); this.model.on('change', this.render, this); }
 			},
 		initSwipers: function() {
 			var initData, bday;
@@ -81,8 +83,10 @@ define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Han
 				});
 			}
 			//update the region name in the label above the map swiper
-			this.swipers['regionSwiper'].addCallback('SlideChangeStart', function(swiper){
-	  			var region = swiper.activeSlide().data('region');
+			console.log(this.swipers);
+			this.swipers['regionSwiper'].addCallback('SlideChangeStart', function(ss){
+				console.log(ss);
+	  			var region = ss.activeSlide().data('region');
 	  			region = region.replace('-', ' ');
 	  			$('#region-name').html(region);
 			});        
@@ -105,6 +109,7 @@ define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Han
 			this.swipers['yearSwiper'].swipeTo(yearIndex,1000,false);
 		},
 		oK: function(event) {
+			console.log('ok on form');
 			var formData = {};
 
 			event.preventDefault();
@@ -166,11 +171,21 @@ define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Han
 			return data;
 		},
 		render: function() {
+			console.log('rendering form');
 			this.d = this.dataHelper();
 			var template = Handlebars.compile($('#form_template_alt').html()),
 				result = template(this.d);
 			this.$el.html(result);
 			this.initSwipers();
+		},
+		close: function() {
+			console.log('closing form');
+			console.log(this);
+		  	this.$el.empty();
+		  	this.undelegateEvents();
+			//this.remove();
+			this.unbind();
+			if (this.model) { console.log('unnnnn'); this.model.unbind("change", this.render, this); }
 		}
 
 	});

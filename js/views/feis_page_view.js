@@ -219,6 +219,7 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 
 			var resultcode = [0,0,0,0];
 			var new_placement_bool = (placeInput <= placement_cutoff) ? 1 : 0; //1 for placing, 0 for not
+			console.log(new_placement_bool);
 			if (prev_placement_bool >= 0) { //if a previous place existed (ie not '-')
 				if (new_placement_bool == prev_placement_bool) { resultcode[0] = 0; } //no change
 				else if (new_placement_bool > prev_placement_bool) { resultcode[0] = 1;} //adding a placement
@@ -243,8 +244,8 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 
 			this.options.dancer.set({'placements': placements, 'firsts': firsts, 'seconds': seconds, 'thirds': thirds});
 	
-			this.model.set({'place': placeInput, 'competitors': compInput, 'resultcode': resultcode});
-			
+			this.model.set({'place': placeInput, 'competitors': compInput, 'resultcode': resultcode, "placementbool": new_placement_bool});
+			console.log(this.model);
 			/*this.model.save({place: placeInput,
 											 competitors: compInput,
 											 placementbool: new_placement_bool,

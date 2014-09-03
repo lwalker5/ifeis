@@ -1,9 +1,9 @@
 requirejs.config({
 	'baseUrl': '/ifeis',
 	'paths': {
-		'jquery':'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min',
-		'underscore':'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min',
-		'backbone':'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min',
+		'jquery':'js/libs/jquery-1.11.1.min',
+		'underscore':'js/libs/underscore-min',
+		'backbone':'js/libs/backbone-min',
 		'handlebars':'js/libs/handlebars-v1.3.0',
 		'swiper':'js/idangerous.swiper'
 	},
@@ -17,9 +17,6 @@ requirejs.config({
 		},
 		'handlebars': {
 			'exports': 'Handlebars'
-		},
-		'swiper':{
-			'exports': 'swiper'
 		}
 	}
 });
