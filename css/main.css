@@ -1151,7 +1151,8 @@ body.light-pink #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -2267,7 +2268,8 @@ body.pink #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.pink #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -3383,7 +3385,8 @@ body.red #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.red #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -4499,7 +4502,8 @@ body.orange #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.orange #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -5615,7 +5619,8 @@ body.green #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.green #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -6731,7 +6736,8 @@ body.teal #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.teal #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -7847,7 +7853,8 @@ body.blue #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.blue #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -8963,7 +8970,8 @@ body.indigo #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -10079,7 +10087,8 @@ body.purple #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.purple #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
@@ -11195,7 +11204,8 @@ body.fuschia #feis .photo > span > span {
 }
 /* line 874, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo img {
-  width: 100%;
+  height: 75px;
+  width: auto;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;

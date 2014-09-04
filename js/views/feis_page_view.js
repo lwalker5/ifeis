@@ -119,14 +119,12 @@ define(['jquery','handlebars','underscore','backbone','swiper','collections','mo
 
 				if (type=="photo") {
 					var photo = new Models['Photo']({id: (this.photos.length + 1), 'name' : feis_name_no_spaces+image_prefix+ext });
-					this.photos.add(photo);
-					this.model.set({'photos': this.model.get('photos').add(photo)});
+					this.photos.add(photo); //since js copy of models is by reference, the photo is added to the feis model
 				}
 
 				else if (type == "marks") {
 					var marks_photo = new Models['Photo']({id: (this.marks.length + 1), 'name' : feis_name_no_spaces+image_prefix+ext });
-					this.marks.add(marks_photo);
-					this.model.set({'marks': this.model.get('marks').add(marks_photo)});					
+					this.marks.add(marks_photo); //since js copy of models is by reference, the photo is added to the feis model				
 				}
 
 				$.ajax({
@@ -210,24 +208,27 @@ define(['jquery','handlebars','underscore','backbone','swiper','collections','mo
 		},
 		oK: function(event) {
 			event.preventDefault();
-			var formData = {};
-			var prev_place = this.model.toJSON().place;
-			var prev_placement_bool = this.model.toJSON().placementbool; //aka was it a placement
-			var placeInput = this.swipers['placeSwiper'].activeSlide().data('place');
-			var compInput = this.swipers['competitorSwiper'].activeSlide().data('total');
-			var placement_cutoff = Math.ceil(compInput/2); //top half (+1 if odd) is a placement
 
-			var resultcode = [0,0,0,0];
-			var new_placement_bool = (placeInput <= placement_cutoff) ? 1 : 0; //1 for placing, 0 for not
-			if (prev_placement_bool >= 0) { //if a previous place existed (ie not '-')
-				if (new_placement_bool == prev_placement_bool) { resultcode[0] = 0; } //no change
-				else if (new_placement_bool > prev_placement_bool) { resultcode[0] = 1;} //adding a placement
-				else if (new_placement_bool < prev_placement_bool) {resultcode[0] = -1; } //removing a placement
+			var formData = {},
+				placeInput = this.swipers['placeSwiper'].activeSlide().data('place'),
+				compInput = this.swipers['competitorSwiper'].activeSlide().data('total'),
+				prevPlace = this.model.toJSON().place,
+				prevPlacementBool = this.model.toJSON().placementbool, //aka was it a placement
+				placementCutoff = Math.ceil(compInput/2), //top half (+1 if odd) is a placement
+				newPlacementBool = (placeInput <= placementCutoff) ? 1 : 0, //1 for placing, 0 for not
+				resultcode = [0,0,0,0];
+
+			if (placeInput > compInput) { compInput = placeInput; }
+
+			if (prevPlacementBool >= 0) { //if a previous place existed (ie not '-')
+				if (newPlacementBool == prevPlacementBool) { resultcode[0] = 0; } //no change
+				else if (newPlacementBool > prevPlacementBool) { resultcode[0] = 1;} //adding a placement
+				else if (newPlacementBool < prevPlacementBool) {resultcode[0] = -1; } //removing a placement
 			}
-			else {resultcode[0] = new_placement_bool ;} //no previous placement so either add or do nothing
+			else {resultcode[0] = newPlacementBool ;} //no previous placement so either add or do nothing
 
 			for (var p = 1; p <= 3; p++) { //test for first, second, third
-				if (prev_place == p) { //if prev place was top three
+				if (prevPlace == p) { //if prev place was top three
 					if (placeInput == p) { resultcode[p] = 0; } //if place remains the same
 					else { resultcode[p] = -1; } //if changed, remove one
 				}
@@ -242,14 +243,7 @@ define(['jquery','handlebars','underscore','backbone','swiper','collections','mo
 
 			this.options.dancer.set({'placements': placements, 'firsts': firsts, 'seconds': seconds, 'thirds': thirds});
 	
-			this.model.set({'place': placeInput, 'competitors': compInput, 'resultcode': resultcode, "placementbool": new_placement_bool});
-			/*this.model.save({place: placeInput,
-											 competitors: compInput,
-											 placementbool: new_placement_bool,
-											 resultcode: resultcode,
-											 dancerid: this.collection.dancerid }, 
-							{success: function () { } 
-			});*/
+			this.model.set({'place': placeInput, 'competitors': compInput, 'resultcode': resultcode, "placementbool": newPlacementBool});
 			this.toggleEdit();
 		}
 	});
