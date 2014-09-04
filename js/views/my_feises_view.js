@@ -10,6 +10,22 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'collections
 		);
 	});
 
+	Handlebars.registerHelper('feisAge', function(object) {
+		var today = new Date(); //Today's date
+
+		var dateArray = object.birthday.split('-');
+		var birthday = new Date(dateArray[0],dateArray[1]-1,dateArray[2]); //Dancer birthday
+
+		var birthYear = birthday.getFullYear();
+		var feis_age = 'U18';
+		if (birthYear <= 1995) {
+			feis_age = 'O18'; 
+		}
+		else {feis_age = 'U' + (today.getFullYear() - birthYear); }
+		return new Handlebars.SafeString(feis_age);
+	});
+
+
 	Handlebars.registerHelper('placeSuffix', function(object) {
 		var suffix = "";
 		if (object.place) {
@@ -161,7 +177,6 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'collections
 		},
 
 		addFeis: function(feisInfo) { 
-			console.log('adding feis');
 			var feis; //new feis model		
 			feisInfo.dancerid = this.collection.dancerid;
 			feisInfo.id = this.collection.length + 1;
@@ -191,7 +206,6 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'collections
 		},
 
 		displayFeis: function(feis, animate) {
-			console.log('displayingFeis');
 			var monthNum = feis.get('month'),
 				monthName = this.numToName(monthNum).slice(0,3),
 				feisCountPerMonth = this.months,

@@ -55,6 +55,8 @@ define(['jquery','handlebars','underscore','backbone','swiper','collections','mo
 	    if (index > 0) { prev_feis_model = this.collection.at(index-1); }
 	    else { prev_feis_model = this.collection.at(this.collection.length -1); }
 	    this.feis_info.prev_feis_id = prev_feis_model.get('id');
+	    this.feis_info.level = this.options.dancer.get('level');
+	    this.feis_info.birthday = this.options.dancer.get('birthday');
 
 		this.swipers = [];
 		this.photos = this.model.get('photos');//populate photos collection

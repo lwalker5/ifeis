@@ -4,21 +4,6 @@
 define(['jquery','handlebars','underscore','backbone','views/form_view'], 
 	function($, Handlebars, _, Backbone, FormView) {
 
-	Handlebars.registerHelper('feisAge', function(object) {
-		var today = new Date(); //Today's date
-
-		var dateArray = object.birthday.split('-')
-		var birthday = new Date(dateArray[0],dateArray[1]-1,dateArray[2]); //Dancer birthday
-
-		var birthYear = birthday.getFullYear();
-		var feis_age = 'U18';
-		if (birthYear <= 1995) {
-			feis_age = 'O18'; 
-		}
-		else {feis_age = 'U' + (today.getFullYear() - birthYear); }
-		return new Handlebars.SafeString(feis_age);
-	});
-
 	var ProfileView = Backbone.View.extend({
 		initialize: function() {
 			_.bindAll(this, 'render');

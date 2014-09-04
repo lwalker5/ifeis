@@ -129,8 +129,8 @@ define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Han
 
 			formData['name'] = $('#form_name').val();
 			formData['birthday'] = year + '-' + month + '-' + day;
-			formData['region'] = this.swipers['regionSwiper'].activeSlide().data('region');
-			formData['level'] = this.swipers['levelSwiper'].activeSlide().data('level');
+			formData['region'] = this.swipers['regionSwiper'].activeSlide().data('region').replace('-', ' ');
+			formData['level'] = this.swipers['levelSwiper'].activeSlide().data('level').replace('-', ' ');
 			this.event_aggregator.trigger("editDancer",formData);
 		},
 		dataHelper: function() {

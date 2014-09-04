@@ -22,14 +22,14 @@ define(['underscore','backbone'], function(_, Backbone) {
 
 	var Feis = Backbone.Model.extend({
 		defaults: {
-			name: 'Inishfree',
+			name: 'Feis',
 			month: 1,
 			day: '1',
 			year: '2014',
 			region: 'MAR',
 			place: null,
 			competitors: null,
-			placementbool: 1
+			placementbool: 0
 		}
 	});
 
