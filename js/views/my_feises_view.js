@@ -1,11 +1,11 @@
 //All the views that render on the 'My Feises' page
 //Only need to return MyFeisesView
 
-define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collections', 'js/models',  'js/views/form_view'],
+define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'collections', 'models',  'views/form_view'],
 	function($, _, Backbone, Handlebars, swiper, Collections, Models, FormView) {
 
 	Handlebars.registerHelper('href', function(object) {
-	  return new Handlebars.SafeString(
+	  return new Handlebars.SafeString( 
 	    "#/feises/" + object + ""
 		);
 	});
@@ -90,12 +90,12 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 		},
 		close: function() {
 			this.formView.close();
+			this.listView.close();
 			this.$el.empty();
 			//this.remove();
-			//this.unbind();
+			this.unbind();
 			this.undelegateEvents();
-		  	/*this.event_aggregator.unbind('addFeis:add',this.addFeis);
-		  	this.event_aggregator.unbind('showForm',this.toggleMenu);*/
+		  	this.event_aggregator.unbind('showForm',this.toggleMenu);
 
 		}
 	})
@@ -104,7 +104,7 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 		tagName: 'ol',
 		id: 'feis_list',
 		initialize: function() {
-			_.bindAll(this, 'render', 'addFeis', 'addMonth', 'fetchFeis', 'displayFeis');
+			_.bindAll(this, 'render', 'addFeis', 'addMonth', 'fetchFeis', 'displayFeis', 'close');
 			this.event_aggregator.bind("addFeis:add", this.addFeis);
 			this.collection.bind('add', this.displayFeis);
 			this.months = new Array(13);
@@ -161,6 +161,7 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 		},
 
 		addFeis: function(feisInfo) { 
+			console.log('adding feis');
 			var feis; //new feis model		
 			feisInfo.dancerid = this.collection.dancerid;
 			feisInfo.id = this.collection.length + 1;
@@ -190,6 +191,7 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 		},
 
 		displayFeis: function(feis, animate) {
+			console.log('displayingFeis');
 			var monthNum = feis.get('month'),
 				monthName = this.numToName(monthNum).slice(0,3),
 				feisCountPerMonth = this.months,
@@ -238,6 +240,13 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'swiper', 'js/collecti
 
 			insertFeisView();
 			showFeisView();
+		},
+		close: function() {
+			this.$el.empty();
+			this.collection.unbind("add", this.displayFeis);
+			this.unbind();
+			this.remove();
+			this.event_aggregator.unbind('addFeis:add', this.addFeis);
 		}
 	});
 

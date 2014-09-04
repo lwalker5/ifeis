@@ -1,9 +1,9 @@
 //Router - controls the navigation
 
-define(['jquery','handlebars','underscore','backbone','js/manager',
-		'js/collections','js/models','js/views/user_view','js/views/my_feises_view',
-		'js/views/feis_page_view','js/views/customize_page_view'],
-		function($, Handlebars, _, Backbone, ViewManager,
+define(['jquery','handlebars','underscore','backbone','manager',
+		'collections','models','views/user_view','views/my_feises_view',
+		'views/feis_page_view','views/customize_page_view'],
+		function($, Handlebars, _, Backbone, ViewManager, 
 				 Collections, Models, UserView, MyFeisesView,
 				 FeisPageView, CustomizePageView) {
 
@@ -18,13 +18,11 @@ define(['jquery','handlebars','underscore','backbone','js/manager',
 				initialize: function() {
 					this.dancer = new Models['User']({id: 1});
 					this.feises = new Collections['Feises']([],{dancerid: 1});
-					//this.dancer.fetch();
 					this.feises.fetch({data:{ dancerid : this.feises.dancerid }});
 					_.bindAll(this, 'feisPageRoute');
 					this.Manager = new ViewManager();
 				},
 				profileRoute: function() {
-					console.log('routing to profile');
 					var userView = new UserView({ id: 'profile', model: this.dancer });
 					this.Manager.show(userView);
 				},

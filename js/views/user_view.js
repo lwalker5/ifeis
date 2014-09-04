@@ -1,7 +1,7 @@
 //UserView aka Profile
 //Stats and user info, edit user info form (birthday, region, level, etc.)
 
-define(['jquery','handlebars','underscore','backbone','js/views/form_view'], 
+define(['jquery','handlebars','underscore','backbone','views/form_view'], 
 	function($, Handlebars, _, Backbone, FormView) {
 
 	Handlebars.registerHelper('feisAge', function(object) {
@@ -28,7 +28,6 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 			this.render();
 		},
 		render: function() {
-			console.log(this);
 			var template = Handlebars.compile($('#profile_template').html()),
 			result = template(this.model.toJSON());
 			this.$el.html(result);
@@ -57,7 +56,6 @@ define(['jquery','handlebars','underscore','backbone','js/views/form_view'],
 			this.$el.html(template);
 			this.profileView = new ProfileView({el: $('#profile'), model: this.model});
 			this.formView = new FormView({el: $('#edit_info_form'), type: 'settings', model: this.model});
-			console.log(this.formView);
 		},
 		showForm: function() {
 			this.event_aggregator.trigger("showForm");

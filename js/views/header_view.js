@@ -3,7 +3,7 @@
 
 define(['jquery','handlebars','underscore','backbone'], function($, Handlebars, _, Backbone) {
 	
-	var HeaderView = Backbone.View.extend({
+	var HeaderView = Backbone.View.extend({ 
 		events: {
 			'click #menu_button': 'toggleNav'
 		},

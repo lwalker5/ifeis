@@ -1,14 +1,12 @@
 //Bootstrap - Start here!
 //Lindsay Walker - iFeis 2014
 
-define(['jquery','backbone','js/router','js/views/header_view'], function($, Backbone, Router, HeaderView) {
+define(['jquery','backbone','router','views/header_view'], function($, Backbone, Router, HeaderView) {
 	
 	var initialize = function() {
 
 		Backbone.View.prototype.event_aggregator = _.extend({}, Backbone.Events);
 		Backbone.View.prototype.close = function(){
-			console.log('to unbind: ');
-			console.log(this);
 		  this.$el.empty(); //clear the area
 		  this.undelegateEvents();
 		  this.event_aggregator.unbind('addFeis:add',this.addFeis);

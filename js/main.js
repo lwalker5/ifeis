@@ -1,11 +1,10 @@
 requirejs.config({
-	'baseUrl': '/ifeis',
 	'paths': {
-		'jquery':'js/libs/jquery-1.11.1.min',
-		'underscore':'js/libs/underscore-min',
-		'backbone':'js/libs/backbone-min',
-		'handlebars':'js/libs/handlebars-v1.3.0',
-		'swiper':'js/idangerous.swiper'
+		'jquery':'libs/jquery-1.11.1.min',
+		'underscore':'libs/underscore-min',
+		'backbone':'libs/backbone-min',
+		'handlebars':'libs/handlebars-v1.3.0',
+		'swiper':'idangerous.swiper'
 	},
 	'shim': {
 		'underscore':{
@@ -21,6 +20,6 @@ requirejs.config({
 	}
 });
 
-require(['js/ifeis'], function(iFeis) {
+require(['ifeis'], function(iFeis) {
 	iFeis.initialize(); 
 })

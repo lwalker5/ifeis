@@ -4,7 +4,7 @@ define(['jquery', 'handlebars', 'underscore', 'backbone'], function($, Handlebar
 
 	var CustomizePageView = Backbone.View.extend({
 		el: '#main',
-		events : { 
+		events : {  
 			'click #apply-customize': 'oK',
 			'click .sequin': 'switchBling'
 		},

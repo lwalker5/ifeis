@@ -1,6 +1,6 @@
 //Photos and Feises collections
 
-define(['underscore','backbone','js/models'], function(_, Backbone, Models) {
+define(['underscore','backbone','models'], function(_, Backbone, Models) {
 
 	var Photos = Backbone.Collection.extend({
 		model: Models['Photo'],

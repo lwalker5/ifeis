@@ -1,7 +1,7 @@
 //FeisPageView + Helpers
 //Page that shows when a feis is clicked on from main list. Results, Marks, Photos sections
 
-define(['jquery','handlebars','underscore','backbone','swiper','js/collections','js/models','js/views/form_view'],
+define(['jquery','handlebars','underscore','backbone','swiper','collections','models','views/form_view'],
 	function($, Handlebars, _, Backbone, swiper, Collections, Models, FormView) {
 
 	Handlebars.registerHelper('fullDate', function(object) {
@@ -165,9 +165,7 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 				});
 				for (var l = 0; l < photoList.length; l++) {
 					var slide_string = '<img src="img/feis_photos/'+photoList.toJSON()[l]['name'] +'"/>';
-					console.log(slide_string);
 					var newSlide = this.swipers[type].createSlide(slide_string,'photo swiper-slide');
-					console.log(newSlide);
 					newSlide.prepend();
 				}
 			}
@@ -219,7 +217,6 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 
 			var resultcode = [0,0,0,0];
 			var new_placement_bool = (placeInput <= placement_cutoff) ? 1 : 0; //1 for placing, 0 for not
-			console.log(new_placement_bool);
 			if (prev_placement_bool >= 0) { //if a previous place existed (ie not '-')
 				if (new_placement_bool == prev_placement_bool) { resultcode[0] = 0; } //no change
 				else if (new_placement_bool > prev_placement_bool) { resultcode[0] = 1;} //adding a placement
@@ -235,7 +232,6 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 				else if (placeInput == p) { resultcode[p] = 1; } //new top three result
 			}
 
-			//console.log(this.options.dancer);
 			var dancer = this.options.dancer;
 			var placements = parseInt(dancer.get('placements')) + resultcode[0],
 				firsts = parseInt(dancer.get('firsts')) + resultcode[1],
@@ -245,7 +241,6 @@ define(['jquery','handlebars','underscore','backbone','swiper','js/collections',
 			this.options.dancer.set({'placements': placements, 'firsts': firsts, 'seconds': seconds, 'thirds': thirds});
 	
 			this.model.set({'place': placeInput, 'competitors': compInput, 'resultcode': resultcode, "placementbool": new_placement_bool});
-			console.log(this.model);
 			/*this.model.save({place: placeInput,
 											 competitors: compInput,
 											 placementbool: new_placement_bool,
