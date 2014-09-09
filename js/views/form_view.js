@@ -32,8 +32,8 @@ define(['jquery','handlebars','underscore','swiper', 'backbone'],function($, Han
 				var bday = new Date(tmp[0],tmp[1]-1,tmp[2]); 
 			}
 			//initial slide numbers
-			initLevel = (this.model) ?  $.inArray(initData.level,this.d.level) : 0;
-			initRegion = (this.model) ? $.inArray(initData.region,this.d.region) : 0;
+			initLevel = (this.model) ?  $.inArray(initData.level.replace(' ','-'),this.d.level) : 0;
+			initRegion = (this.model) ? $.inArray(initData.region.replace(' ','-'),this.d.region) : 0;
 			initYear = (this.model) ?  $.inArray(bday.getFullYear(),this.d.year) : 64;
 			initMonth = (this.model) ?  bday.getMonth() : 0;
 			initDay = (this.model) ?  $.inArray(bday.getDay(),this.d.day) : 0;
