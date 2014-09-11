@@ -218,7 +218,7 @@ define(['jquery','handlebars','underscore','backbone','swiper','collections','mo
 				newPlacementBool = (placeInput <= placementCutoff) ? 1 : 0, //1 for placing, 0 for not
 				resultcode = [0,0,0,0];
 
-			if (placeInput > compInput) { compInput = placeInput; }
+			if (parseInt(placeInput) > parseInt(compInput)) { compInput = placeInput; }
 
 			if (prevPlacementBool >= 0) { //if a previous place existed (ie not '-')
 				if (newPlacementBool == prevPlacementBool) { resultcode[0] = 0; } //no change

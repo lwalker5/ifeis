@@ -9,7 +9,7 @@ define(['jquery', 'handlebars', 'underscore', 'backbone'], function($, Handlebar
 			'click .sequin': 'switchBling'
 		},
 		initialize: function() {
-			_.bindAll(this,'render','initSwipers','switchBling','oK');
+			_.bindAll(this,'render','initSwipers','switchBling','oK','close');
 			this.swipers = [];
 			this.data = {'color':['light-pink','pink','red','orange','green','teal','blue','indigo','purple','fuschia'] };
 			this.chosen_sequin = $('body').data('sequin');
@@ -81,6 +81,13 @@ define(['jquery', 'handlebars', 'underscore', 'backbone'], function($, Handlebar
 
 			data['page'] = 'customize';
 			data['id'] = this.model.id;
+		},
+		close: function() {
+		  	this.$el.empty();
+		  	this.undelegateEvents();
+			//this.remove();
+			this.unbind();
+			if (this.model) { this.model.unbind("change", this.render, this); }
 		}
 	});
 	
