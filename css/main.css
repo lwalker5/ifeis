@@ -69,19 +69,20 @@ body {
   font-family: 'Open Sans', 'sans-serif';
   font-weight: 400;
   color: #0f0f0f;
+  background-image: url(../img/background-sprite.png);
   background-repeat: repeat-y;
   max-width: 320px;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 22, ../sass/main.scss */
-body.gold {
-  background-image: url(../img/goldbg3.png);
-}
 /* line 23, ../sass/main.scss */
 body.silver {
-  background-image: url(../img/silver_bg.png);
+  background-position: 0 0;
 }
-/* line 27, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
+body.gold {
+  background-position: 0 -642px;
+}
+/* line 28, ../sass/main.scss */
 body.light-pink {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -1004,23 +1005,34 @@ body.light-pink #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.light-pink #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.light-pink #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.light-pink #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.light-pink #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.light-pink #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.light-pink #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -1028,11 +1040,11 @@ body.light-pink #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.light-pink #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.light-pink #customize .swiper-container li div {
   background-color: #f93ca2;
   width: 89%;
@@ -1040,47 +1052,47 @@ body.light-pink #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.light-pink #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.light-pink #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.light-pink #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.light-pink #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.light-pink #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.light-pink #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.light-pink #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.light-pink #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.light-pink #feis .accent_numbers {
   display: inline-block;
   color: #f93ca2;
@@ -1089,40 +1101,40 @@ body.light-pink #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.light-pink #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.light-pink #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.light-pink #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.light-pink #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.light-pink #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.light-pink #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -1138,18 +1150,18 @@ body.light-pink #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo img {
   height: 75px;
   width: auto;
@@ -1157,11 +1169,11 @@ body.light-pink #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.light-pink #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.light-pink #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -1180,25 +1192,25 @@ body.light-pink #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.light-pink #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.light-pink #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.light-pink #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.light-pink #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 28, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 body.pink {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -2121,23 +2133,34 @@ body.pink #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.pink #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.pink #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.pink #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.pink #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.pink #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.pink #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -2145,11 +2168,11 @@ body.pink #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.pink #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.pink #customize .swiper-container li div {
   background-color: #e3046d;
   width: 89%;
@@ -2157,47 +2180,47 @@ body.pink #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.pink #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.pink #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.pink #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.pink #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.pink #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.pink #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.pink #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.pink #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.pink #feis .accent_numbers {
   display: inline-block;
   color: #e3046d;
@@ -2206,40 +2229,40 @@ body.pink #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.pink #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.pink #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.pink #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.pink #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.pink #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.pink #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.pink #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.pink #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -2255,18 +2278,18 @@ body.pink #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.pink #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.pink #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.pink #feis .photo img {
   height: 75px;
   width: auto;
@@ -2274,11 +2297,11 @@ body.pink #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.pink #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.pink #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -2297,25 +2320,25 @@ body.pink #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.pink #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.pink #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.pink #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.pink #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 29, ../sass/main.scss */
+/* line 30, ../sass/main.scss */
 body.red {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -3238,23 +3261,34 @@ body.red #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.red #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.red #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.red #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.red #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.red #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.red #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -3262,11 +3296,11 @@ body.red #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.red #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.red #customize .swiper-container li div {
   background-color: #b30000;
   width: 89%;
@@ -3274,47 +3308,47 @@ body.red #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.red #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.red #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.red #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.red #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.red #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.red #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.red #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.red #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.red #feis .accent_numbers {
   display: inline-block;
   color: #b30000;
@@ -3323,40 +3357,40 @@ body.red #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.red #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.red #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.red #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.red #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.red #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.red #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.red #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.red #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -3372,18 +3406,18 @@ body.red #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.red #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.red #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.red #feis .photo img {
   height: 75px;
   width: auto;
@@ -3391,11 +3425,11 @@ body.red #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.red #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.red #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -3414,25 +3448,25 @@ body.red #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.red #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.red #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.red #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.red #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 body.orange {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -4355,23 +4389,34 @@ body.orange #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.orange #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.orange #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.orange #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.orange #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.orange #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.orange #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -4379,11 +4424,11 @@ body.orange #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.orange #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.orange #customize .swiper-container li div {
   background-color: #e93600;
   width: 89%;
@@ -4391,47 +4436,47 @@ body.orange #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.orange #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.orange #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.orange #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.orange #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.orange #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.orange #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.orange #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.orange #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.orange #feis .accent_numbers {
   display: inline-block;
   color: #e93600;
@@ -4440,40 +4485,40 @@ body.orange #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.orange #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.orange #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.orange #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.orange #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.orange #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.orange #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.orange #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.orange #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -4489,18 +4534,18 @@ body.orange #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.orange #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.orange #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.orange #feis .photo img {
   height: 75px;
   width: auto;
@@ -4508,11 +4553,11 @@ body.orange #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.orange #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.orange #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -4531,25 +4576,25 @@ body.orange #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.orange #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.orange #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.orange #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.orange #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 32, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 body.green {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -5472,23 +5517,34 @@ body.green #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.green #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.green #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.green #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.green #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.green #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.green #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -5496,11 +5552,11 @@ body.green #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.green #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.green #customize .swiper-container li div {
   background-color: #219136;
   width: 89%;
@@ -5508,47 +5564,47 @@ body.green #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.green #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.green #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.green #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.green #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.green #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.green #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.green #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.green #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.green #feis .accent_numbers {
   display: inline-block;
   color: #219136;
@@ -5557,40 +5613,40 @@ body.green #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.green #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.green #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.green #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.green #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.green #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.green #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.green #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.green #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -5606,18 +5662,18 @@ body.green #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.green #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.green #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.green #feis .photo img {
   height: 75px;
   width: auto;
@@ -5625,11 +5681,11 @@ body.green #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.green #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.green #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -5648,25 +5704,25 @@ body.green #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.green #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.green #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.green #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.green #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 33, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 body.teal {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -6589,23 +6645,34 @@ body.teal #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.teal #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.teal #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.teal #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.teal #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.teal #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.teal #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -6613,11 +6680,11 @@ body.teal #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.teal #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.teal #customize .swiper-container li div {
   background-color: #038ba9;
   width: 89%;
@@ -6625,47 +6692,47 @@ body.teal #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.teal #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.teal #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.teal #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.teal #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.teal #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.teal #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.teal #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.teal #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.teal #feis .accent_numbers {
   display: inline-block;
   color: #038ba9;
@@ -6674,40 +6741,40 @@ body.teal #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.teal #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.teal #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.teal #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.teal #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.teal #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.teal #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.teal #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.teal #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -6723,18 +6790,18 @@ body.teal #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.teal #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.teal #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.teal #feis .photo img {
   height: 75px;
   width: auto;
@@ -6742,11 +6809,11 @@ body.teal #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.teal #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.teal #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -6765,25 +6832,25 @@ body.teal #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.teal #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.teal #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.teal #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.teal #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 34, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 body.blue {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -7706,23 +7773,34 @@ body.blue #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.blue #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.blue #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.blue #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.blue #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.blue #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.blue #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -7730,11 +7808,11 @@ body.blue #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.blue #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.blue #customize .swiper-container li div {
   background-color: #042dd4;
   width: 89%;
@@ -7742,47 +7820,47 @@ body.blue #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.blue #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.blue #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.blue #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.blue #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.blue #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.blue #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.blue #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.blue #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.blue #feis .accent_numbers {
   display: inline-block;
   color: #042dd4;
@@ -7791,40 +7869,40 @@ body.blue #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.blue #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.blue #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.blue #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.blue #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.blue #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.blue #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.blue #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.blue #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -7840,18 +7918,18 @@ body.blue #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.blue #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.blue #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.blue #feis .photo img {
   height: 75px;
   width: auto;
@@ -7859,11 +7937,11 @@ body.blue #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.blue #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.blue #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -7882,25 +7960,25 @@ body.blue #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.blue #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.blue #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.blue #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.blue #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 35, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 body.indigo {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -8823,23 +8901,34 @@ body.indigo #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.indigo #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.indigo #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.indigo #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.indigo #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.indigo #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.indigo #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -8847,11 +8936,11 @@ body.indigo #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.indigo #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.indigo #customize .swiper-container li div {
   background-color: #2604d4;
   width: 89%;
@@ -8859,47 +8948,47 @@ body.indigo #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.indigo #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.indigo #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.indigo #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.indigo #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.indigo #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.indigo #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.indigo #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.indigo #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.indigo #feis .accent_numbers {
   display: inline-block;
   color: #2604d4;
@@ -8908,40 +8997,40 @@ body.indigo #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.indigo #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.indigo #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.indigo #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.indigo #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.indigo #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.indigo #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -8957,18 +9046,18 @@ body.indigo #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo img {
   height: 75px;
   width: auto;
@@ -8976,11 +9065,11 @@ body.indigo #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.indigo #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.indigo #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -8999,25 +9088,25 @@ body.indigo #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.indigo #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.indigo #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.indigo #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.indigo #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 36, ../sass/main.scss */
+/* line 37, ../sass/main.scss */
 body.purple {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -9940,23 +10029,34 @@ body.purple #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.purple #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.purple #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.purple #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.purple #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.purple #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.purple #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -9964,11 +10064,11 @@ body.purple #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.purple #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.purple #customize .swiper-container li div {
   background-color: #5204d4;
   width: 89%;
@@ -9976,47 +10076,47 @@ body.purple #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.purple #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.purple #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.purple #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.purple #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.purple #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.purple #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.purple #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.purple #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.purple #feis .accent_numbers {
   display: inline-block;
   color: #5204d4;
@@ -10025,40 +10125,40 @@ body.purple #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.purple #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.purple #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.purple #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.purple #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.purple #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.purple #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.purple #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.purple #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -10074,18 +10174,18 @@ body.purple #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.purple #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.purple #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.purple #feis .photo img {
   height: 75px;
   width: auto;
@@ -10093,11 +10193,11 @@ body.purple #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.purple #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.purple #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -10116,25 +10216,25 @@ body.purple #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.purple #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.purple #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.purple #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.purple #photo_form {
   margin-right: 38%;
   margin-left: 10px;
 }
-/* line 37, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 body.fuschia {
   /*header#feises_header {
   	padding: 9px 30px;
@@ -11057,23 +11157,34 @@ body.fuschia #customize header {
 /* line 773, ../sass/_theme-mixin.scss */
 body.fuschia #customize .sequins li {
   display: inline-block;
+  background-image: url(../img/sequin-sprite.png);
   width: 90px;
+  height: 78px;
   margin-right: 12px;
+  border: 3px solid #f8f8f8;
   -moz-border-radius: 8px / 8px;
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 778, ../sass/_theme-mixin.scss */
+/* line 776, ../sass/_theme-mixin.scss */
+body.fuschia #customize .sequins li.silver {
+  background-position: 0 0;
+}
+/* line 777, ../sass/_theme-mixin.scss */
+body.fuschia #customize .sequins li.gold {
+  background-position: 0 -79px;
+}
+/* line 783, ../sass/_theme-mixin.scss */
 body.fuschia #customize .sequins li:hover {
   cursor: pointer;
 }
-/* line 779, ../sass/_theme-mixin.scss */
+/* line 784, ../sass/_theme-mixin.scss */
 body.fuschia #customize .sequins li.active {
   -moz-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 8px 2px rgba(171, 171, 170, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
 }
-/* line 782, ../sass/_theme-mixin.scss */
+/* line 787, ../sass/_theme-mixin.scss */
 body.fuschia #customize .sequins li img {
   width: 100%;
   border: 3px solid #f8f8f8;
@@ -11081,11 +11192,11 @@ body.fuschia #customize .sequins li img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 790, ../sass/_theme-mixin.scss */
+/* line 795, ../sass/_theme-mixin.scss */
 body.fuschia #customize .swiper-container li {
   position: relative;
 }
-/* line 795, ../sass/_theme-mixin.scss */
+/* line 800, ../sass/_theme-mixin.scss */
 body.fuschia #customize .swiper-container li div {
   background-color: #9800b3;
   width: 89%;
@@ -11093,47 +11204,47 @@ body.fuschia #customize .swiper-container li div {
   height: 100%;
   position: inherit;
 }
-/* line 803, ../sass/_theme-mixin.scss */
+/* line 808, ../sass/_theme-mixin.scss */
 body.fuschia #customize .swiper-container li.selected {
   outline: 3px white solid;
   -webkit-box-shadow: 0 0 17px 4px #494949;
   z-index: 5;
 }
-/* line 811, ../sass/_theme-mixin.scss */
+/* line 816, ../sass/_theme-mixin.scss */
 body.fuschia #customize #color-picker {
   width: 100%;
 }
-/* line 812, ../sass/_theme-mixin.scss */
+/* line 817, ../sass/_theme-mixin.scss */
 body.fuschia #customize #color-header {
   margin: 0px 16px 16px 16px;
 }
-/* line 813, ../sass/_theme-mixin.scss */
+/* line 818, ../sass/_theme-mixin.scss */
 body.fuschia #customize #apply-customize {
   width: 100%;
   margin: 0 auto;
   display: block;
 }
-/* line 816, ../sass/_theme-mixin.scss */
+/* line 821, ../sass/_theme-mixin.scss */
 body.fuschia #feis {
   margin: 0 12px !important;
 }
-/* line 818, ../sass/_theme-mixin.scss */
+/* line 823, ../sass/_theme-mixin.scss */
 body.fuschia #feis .hidden {
   display: none;
 }
-/* line 820, ../sass/_theme-mixin.scss */
+/* line 825, ../sass/_theme-mixin.scss */
 body.fuschia #feis header h1 {
   font-size: 2.3em;
   display: inline-block;
 }
-/* line 824, ../sass/_theme-mixin.scss */
+/* line 829, ../sass/_theme-mixin.scss */
 body.fuschia #feis header .feis_date {
   font-size: 1.6em;
   font-weight: 400;
   line-height: 20px;
   float: right;
 }
-/* line 831, ../sass/_theme-mixin.scss */
+/* line 836, ../sass/_theme-mixin.scss */
 body.fuschia #feis .accent_numbers {
   display: inline-block;
   color: #9800b3;
@@ -11142,40 +11253,40 @@ body.fuschia #feis .accent_numbers {
   font-variant: small-caps;
   margin: 0 10px 0 0;
 }
-/* line 839, ../sass/_theme-mixin.scss */
+/* line 844, ../sass/_theme-mixin.scss */
 body.fuschia #feis .edit-result-wrapper {
   margin: 8px 0 0 0;
 }
-/* line 843, ../sass/_theme-mixin.scss */
+/* line 848, ../sass/_theme-mixin.scss */
 body.fuschia #feis h2 {
   display: inline-block;
 }
-/* line 844, ../sass/_theme-mixin.scss */
+/* line 849, ../sass/_theme-mixin.scss */
 body.fuschia #feis form {
   height: auto;
   font-size: 1em;
 }
-/* line 846, ../sass/_theme-mixin.scss */
+/* line 851, ../sass/_theme-mixin.scss */
 body.fuschia #feis form.photo-select {
   margin-left: 10px;
   margin-right: 40%;
 }
-/* line 848, ../sass/_theme-mixin.scss */
+/* line 853, ../sass/_theme-mixin.scss */
 body.fuschia #feis input.hidden {
   display: none;
 }
-/* line 849, ../sass/_theme-mixin.scss */
+/* line 854, ../sass/_theme-mixin.scss */
 body.fuschia #feis a {
   color: #0f0f0f;
 }
-/* line 850, ../sass/_theme-mixin.scss */
+/* line 855, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo-swiper {
   width: 86%;
   display: inline-block;
   vertical-align: middle;
   margin: 0 8px;
 }
-/* line 856, ../sass/_theme-mixin.scss */
+/* line 861, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo {
   color: #fcfcfc;
   width: 90px;
@@ -11191,18 +11302,18 @@ body.fuschia #feis .photo {
   border: none;
   font-family: 'Asap';
 }
-/* line 869, ../sass/_theme-mixin.scss */
+/* line 874, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo > span {
   font-size: 13px;
   line-height: 56px;
 }
-/* line 872, ../sass/_theme-mixin.scss */
+/* line 877, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo > span > span {
   font-size: 24px;
   font-weight: 700;
   margin-right: 4px;
 }
-/* line 874, ../sass/_theme-mixin.scss */
+/* line 879, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo img {
   height: 75px;
   width: auto;
@@ -11210,11 +11321,11 @@ body.fuschia #feis .photo img {
   -webkit-border-radius: 8px 8px;
   border-radius: 8px / 8px;
 }
-/* line 877, ../sass/_theme-mixin.scss */
+/* line 882, ../sass/_theme-mixin.scss */
 body.fuschia #feis #upload {
   display: none;
 }
-/* line 878, ../sass/_theme-mixin.scss */
+/* line 883, ../sass/_theme-mixin.scss */
 body.fuschia #feis .photo-button {
   width: 45%;
   height: 40px;
@@ -11233,20 +11344,20 @@ body.fuschia #feis .photo-button {
   background-image: -o-linear-gradient(bottom, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
   background-image: linear-gradient(to top, rgba(197, 197, 197, 0.43), rgba(255, 255, 255, 0.25) 50%, rgba(197, 197, 197, 0.43));
 }
-/* line 896, ../sass/_theme-mixin.scss */
+/* line 901, ../sass/_theme-mixin.scss */
 body.fuschia #results_form {
   height: 172px;
   padding: 15px;
 }
-/* line 899, ../sass/_theme-mixin.scss */
+/* line 904, ../sass/_theme-mixin.scss */
 body.fuschia #results_form swiper-container {
   width: 38%;
 }
-/* line 900, ../sass/_theme-mixin.scss */
+/* line 905, ../sass/_theme-mixin.scss */
 body.fuschia #results_form input[role="button"] {
   margin-top: 10px;
 }
-/* line 905, ../sass/_theme-mixin.scss */
+/* line 910, ../sass/_theme-mixin.scss */
 body.fuschia #photo_form {
   margin-right: 38%;
   margin-left: 10px;
